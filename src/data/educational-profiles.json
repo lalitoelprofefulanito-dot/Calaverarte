@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "id": "preescolar",
+      "label": "Preescolar",
+      "kidsSafe": true,
+      "recommended": { "stanzas": 2, "verses": 4, "tone": "infantil", "scheme": "pareada" },
+      "limits": { "maxStanzas": 3, "maxVerses": 4 },
+      "activities": ["rimas", "completar", "estructura", "crear"],
+      "guide": "Lean la calaverita en voz alta varias veces. Pidan que digan o señalen las palabras que suenan igual al final. Las actividades escritas son para que la persona adulta las lea y el grupo responda de forma oral o con dibujos."
+    },
+    {
+      "id": "primaria-baja",
+      "label": "Primaria, primero a tercero",
+      "kidsSafe": true,
+      "recommended": { "stanzas": 3, "verses": 4, "tone": "infantil", "scheme": "pareada" },
+      "limits": { "maxStanzas": 4, "maxVerses": 4 },
+      "activities": ["completar", "rimas", "estructura", "ordenar", "remate", "espacios", "crear"],
+      "guide": "Usen la calaverita como texto modelo: identifiquen título, estrofas y versos; luego jueguen a encontrar rimas y completen versos con un banco de palabras. Cierren escribiendo una calaverita colectiva."
+    },
+    {
+      "id": "primaria-alta",
+      "label": "Primaria, cuarto a sexto",
+      "kidsSafe": true,
+      "recommended": { "stanzas": 4, "verses": 4, "tone": "humoristico", "scheme": "alternada" },
+      "limits": { "maxStanzas": 6, "maxVerses": 6 },
+      "activities": ["estructura", "rimas", "recursos", "ordenar", "remate", "mejorar", "revisar", "crear", "completar", "espacios"],
+      "guide": "Analicen la estructura narrativa (presentación, llegada de la Muerte, conflicto y remate), la personificación de la Muerte y el tipo de rima. Después escriban y revisen su propia calaverita con la guía de criterios."
+    },
+    {
+      "id": "secundaria",
+      "label": "Secundaria",
+      "kidsSafe": true,
+      "recommended": { "stanzas": 5, "verses": 4, "tone": "satirico", "scheme": "abrazada" },
+      "limits": { "maxStanzas": 8, "maxVerses": 8 },
+      "activities": ["recursos", "estructura", "rimas", "mejorar", "revisar", "remate", "ordenar", "crear"],
+      "guide": "Comparen la calaverita con el epitafio burlesco tradicional y la crítica social de la calaverita satírica. Analicen métrica aproximada (octosílabos), rima consonante y asonante, y escriban una calaverita sobre una situación de su entorno escolar sin ofender a personas reales."
+    },
+    {
+      "id": "general",
+      "label": "Público general",
+      "kidsSafe": false,
+      "recommended": { "stanzas": 4, "verses": 4, "tone": "tradicional", "scheme": "alternada" },
+      "limits": { "maxStanzas": 8, "maxVerses": 8 },
+      "activities": ["estructura", "rimas", "recursos", "remate", "ordenar", "mejorar", "revisar", "crear", "completar", "espacios"],
+      "guide": "Usa las actividades como taller de escritura: analiza la estructura, prueba otros remates y revisa tu texto con la guía de criterios."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es-MX" data-theme="claro">
+  <head>
+    <meta charset="utf-8">
+    <!--CSP-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="CalaverArte: generador, editor y taller de calaveritas literarias mexicanas. Funciona en tu dispositivo, sin enviar tus textos a internet.">
+    <meta name="theme-color" content="#26123F">
+    <title>CalaverArte · Taller de calaveritas literarias</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="./manifest.webmanifest">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <header class="app-header">
+      <div class="app-header__inner">
+        <a class="brand" href="#/inicio" aria-label="CalaverArte, ir al inicio">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">CalaverArte</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menú</button>
+        <nav id="main-nav" class="main-nav" aria-label="Secciones"></nav>
+      </div>
+    </header>
+    <main id="main" class="app-main" tabindex="-1"></main>
+    <footer class="app-footer">
+      <p>Tus calaveritas se guardan solo en este dispositivo. CalaverArte usa reglas y plantillas propias; no usa inteligencia artificial para generar poemas ni envía tus textos a internet.</p>
+      <p class="app-footer__credits">Proyecto dirigido por Eduardo Kantún Martínez · <a href="#/creditos">Autoría, referencias APA y prompts documentados</a>.</p>
+    </footer>
+    <div id="toasts" class="toasts" aria-live="polite" aria-atomic="false"></div>
+    <dialog id="confirm-dialog" class="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+      <form method="dialog" class="dialog__body">
+        <h2 id="confirm-title" class="dialog__title"></h2>
+        <p id="confirm-message"></p>
+        <div class="dialog__actions">
+          <button class="btn btn--secondary" value="cancel" type="submit" data-role="cancel">Cancelar</button>
+          <button class="btn btn--primary" value="confirm" type="submit" data-role="confirm">Confirmar</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="print-root" class="print-root" aria-hidden="true"></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

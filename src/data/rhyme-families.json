@@ -1,0 +1,558 @@
+{
+  "version": 1,
+  "about": "Versos con hueco por familia de rima y etapa narrativa. Prefijo opcional [códigos]: L/E/F = desenlace (llevado, escapa, fiesta); tra, hum, inf, sat, tie, fan, nar = tono preferente; adu = no apto para público infantil; dia = contiene diálogo; fin = fórmula de cierre, solo para el último verso del poema. Huecos: {N} protagonista, {o} terminación o/a, {el} él/ella, {lo} lo/la, {oficio}, {gusto}, {cualidad}, {lugar}, {anecdota}, {elemento}, {figura}.",
+  "families": [
+    {
+      "id": "ia",
+      "lines": {
+        "presentacion": [
+          "{N} en {lugar} vivía",
+          "{N} feliz se la pasaba cada día",
+          "era {N} pura alegría",
+          "{N}, {oficio} de día,"
+        ],
+        "rasgo": [
+          "{gusto} bien que sabía",
+          "{gusto} era su alegría",
+          "era {cualidad} y se reía",
+          "{anecdota} cierto día",
+          "[sat] mucho prometía y nada cumplía",
+          "[fan] hablaba con la luna cada día",
+          "y a todos les sonreía",
+          "traía {elemento} todo el día"
+        ],
+        "llegada": [
+          "{figura} llegó aquel día",
+          "{figura}, que todo lo sabía,",
+          "{figura} con gran puntería",
+          "[tra] {figura}, flaca y fría,",
+          "sin saber lo que vendría"
+        ],
+        "conflicto": [
+          "quiso llevárse{lo} ese día",
+          "pero {el} no se rendía",
+          "[dia] «¡Hoy no!», {N} le decía",
+          "con {elemento} se defendía"
+        ],
+        "resolucion": [
+          "[F] y {figura} se reía",
+          "[F] bailaron hasta otro día",
+          "[L] y al panteón se {lo} traía",
+          "[E] y {N} se escabullía"
+        ],
+        "remate": [
+          "[L] y allá {lo} ven todavía",
+          "[F] ¡quién lo diría, quién lo diría!",
+          "[E] y aún se ríe de la Parca fría",
+          "[fin] y aquí se acaba esta poesía",
+          "[L] y en su tumba hay alegría",
+          "[E] y a la Muerte desafía",
+          "[F] ¡y qué noche de alegría!"
+        ]
+      }
+    },
+    {
+      "id": "on",
+      "lines": {
+        "presentacion": [
+          "{N}, de gran corazón,",
+          "{N} era {oficio} de vocación",
+          "en {lugar} era la sensación"
+        ],
+        "rasgo": [
+          "{gusto} era su pasión",
+          "era {cualidad} de corazón",
+          "{anecdota} en una ocasión",
+          "[tie] repartía abrazos un montón",
+          "[hum] siempre quería tener la razón"
+        ],
+        "llegada": [
+          "{figura} entró sin invitación",
+          "{figura} tocó el portón",
+          "[tra] llegó {figura} del panteón",
+          "sonó un golpe en el portón"
+        ],
+        "conflicto": [
+          "quiso llevárse{lo} al panteón",
+          "{lo} jaló del pantalón",
+          "{N} pidió una explicación",
+          "[dia] «¡Dame una oportunidad, por compasión!»"
+        ],
+        "resolucion": [
+          "[F] y armaron una gran función",
+          "[F] bailaron al son de una canción",
+          "[E] {figura} cambió de opinión",
+          "[L] y se {lo} llevó en un cajón",
+          "[E] con {elemento} ganó la discusión"
+        ],
+        "remate": [
+          "[L] y ahora descansa en el panteón",
+          "[F] ¡y qué buena celebración!",
+          "[fin] y aquí se acaba la lección",
+          "[E] y {figura} se quedó sin razón",
+          "[L] y le rezan con devoción",
+          "[E] y se salvó del panteón",
+          "[F] y hubo pan de muerto y canción"
+        ]
+      }
+    },
+    {
+      "id": "ar",
+      "lines": {
+        "presentacion": [
+          "{N} no paraba de trabajar",
+          "{N} en {lugar} solía estar",
+          "{N}, {oficio} sin par,"
+        ],
+        "rasgo": [
+          "le encantaba {gusto} sin parar",
+          "era {cualidad}, no se puede negar",
+          "[inf] siempre quería jugar",
+          "[sat] de la chamba se quería escapar",
+          "le encantaba platicar"
+        ],
+        "llegada": [
+          "{figura} {lo} vino a buscar",
+          "{figura} llegó sin avisar",
+          "[fan] {figura} bajó volando del mar",
+          "algo extraño empezó a pasar"
+        ],
+        "conflicto": [
+          "{lo} quería al panteón llevar",
+          "{N} se quiso escapar",
+          "[dia] «¡Te vengo a llevar!», le dijo al llegar",
+          "sacó {elemento} sin dudar"
+        ],
+        "resolucion": [
+          "[F] y se pusieron a bailar",
+          "[E] y {lo} dejó descansar",
+          "[L] y no {lo} pudo salvar",
+          "[E] {figura} se echó a llorar",
+          "[E] con {elemento} logró escapar"
+        ],
+        "remate": [
+          "[L] y en el panteón ha de estar",
+          "[F] ¡y no dejaron de festejar!",
+          "[fin] y aquí {lo} vamos a dejar",
+          "[E] y {figura} no {lo} volvió a buscar",
+          "[L] y le llevan pan a su altar",
+          "[E] y aún anda por ahí sin parar",
+          "[F] ¡y no paraban de cantar!"
+        ]
+      }
+    },
+    {
+      "id": "ado",
+      "gendered": true,
+      "lines": {
+        "presentacion": [
+          "{N}, muy bien preparad{o},",
+          "{N} vivía muy confiad{o}"
+        ],
+        "rasgo": [
+          "{gusto} {lo} traía encantad{o}",
+          "{anecdota} y quedó apenad{o}",
+          "[hum] siempre andaba despeinad{o}",
+          "andaba siempre apurad{o}",
+          "con {elemento} bien agarrad{o}"
+        ],
+        "llegada": [
+          "{figura} {lo} tenía apuntad{o}",
+          "{figura} {lo} encontró descuidad{o}"
+        ],
+        "conflicto": [
+          "{N} quedó asustad{o}",
+          "{N} gritó desesperad{o}",
+          "[hum] {N} fingió estar desmayad{o}"
+        ],
+        "resolucion": [
+          "[L] y al panteón fue llevad{o}",
+          "[E] y salió bien librad{o}",
+          "[F] y bailó muy animad{o}"
+        ],
+        "remate": [
+          "[L] y quedó bien sepultad{o}",
+          "[F] ¡y allá sigue de invitad{o}!",
+          "[E] y nunca fue alcanzad{o}",
+          "[L] y por siempre es recordad{o}",
+          "[E] y sigue sin ser atrapad{o}",
+          "[F] y salió muy bien parad{o}"
+        ]
+      }
+    },
+    {
+      "id": "ida",
+      "lines": {
+        "presentacion": [
+          "{N} gozaba de la vida",
+          "{N} amaba la comida"
+        ],
+        "rasgo": [
+          "{gusto} le alegraba la vida",
+          "[hum] comía tamales sin medida",
+          "{anecdota} a la salida",
+          "[hum] nunca se perdía una comida"
+        ],
+        "llegada": [
+          "{figura} llegó enseguida",
+          "{figura}, siempre decidida,",
+          "y una sombra apareció enseguida"
+        ],
+        "conflicto": [
+          "[dia] le dijo: «Se acabó tu vida»",
+          "{N} buscó una salida"
+        ],
+        "resolucion": [
+          "[F] y {N} le invitó la comida",
+          "[L] hicieron una gran despedida",
+          "[E] y {N} huyó por la avenida"
+        ],
+        "remate": [
+          "[L] ¡y así se acaba la vida!",
+          "[F] ¡y la fiesta sigue encendida!",
+          "[fin] y aquí termina la partida",
+          "[L] y fue su última salida",
+          "[E] y la Muerte quedó vencida",
+          "[F] ¡y hubo tamales y comida!"
+        ]
+      }
+    },
+    {
+      "id": "era",
+      "lines": {
+        "presentacion": [
+          "{N}, de buena manera,",
+          "{N} era {oficio} de primera"
+        ],
+        "rasgo": [
+          "{gusto} era su vida entera",
+          "era {cualidad} a su manera",
+          "[fan] tenía un dragón de mascota casera",
+          "siempre llegaba a la carrera"
+        ],
+        "llegada": [
+          "{figura}, alegre calavera,",
+          "{figura} llegó a la carrera",
+          "se oyó un grito allá afuera"
+        ],
+        "conflicto": [
+          "[dia] le dijo: «Ven, que la tumba te espera»",
+          "{N} no quiso ir de ninguna manera",
+          "con {elemento} se defendió como pudiera"
+        ],
+        "resolucion": [
+          "[F] y bailaron la noche entera",
+          "[L] y una lápida fue su cabecera",
+          "[E] y {N} corrió a la carrera"
+        ],
+        "remate": [
+          "¡quién lo creyera!",
+          "[L] y ahora es otra calavera",
+          "[F] ¡y que siga la fiesta entera!",
+          "[L] y en su tumba crece una enredadera",
+          "[E] y la Muerte todavía {lo} espera",
+          "[F] y bailaron en la pradera"
+        ]
+      }
+    },
+    {
+      "id": "ente",
+      "lines": {
+        "presentacion": [
+          "{N}, siempre tan sonriente,",
+          "{N} saludaba a toda la gente",
+          "{N} era muy valiente",
+          "con {elemento} siempre presente"
+        ],
+        "rasgo": [
+          "iba a {gusto} diariamente",
+          "era {cualidad} e inteligente",
+          "{anecdota} de repente",
+          "siempre ayudaba a la gente"
+        ],
+        "llegada": [
+          "{figura} apareció de repente",
+          "{figura} llegó sonriente",
+          "sintió un escalofrío de repente"
+        ],
+        "conflicto": [
+          "{figura} {lo} miró de frente",
+          "[dia] {N} le dijo: «¡Ni lo intente!»",
+          "sacó {elemento} de repente"
+        ],
+        "resolucion": [
+          "[F] y bailaron con toda la gente",
+          "[E] y {figura} se fue impaciente",
+          "[L] y se {lo} llevó sonriente"
+        ],
+        "remate": [
+          "[L] y {lo} recuerda toda la gente",
+          "[L] ¡que en paz descanse eternamente!",
+          "[E] y sigue vivit{o} y sonriente",
+          "[F] ¡y que viva toda la gente!",
+          "[L] y en la ofrenda está presente",
+          "[E] y sigue san{o} y valiente",
+          "[F] y brindaron con la gente"
+        ]
+      }
+    },
+    {
+      "id": "o",
+      "lines": {
+        "presentacion": [
+          "{N} un día despertó",
+          "{N} en {lugar} trabajó"
+        ],
+        "rasgo": [
+          "{anecdota} y nadie {lo} olvidó",
+          "de {gusto} nunca se cansó",
+          "era {cualidad}, y así creció",
+          "nunca un día faltó",
+          "{elemento} nunca soltó"
+        ],
+        "llegada": [
+          "{figura} a la puerta tocó",
+          "y de pronto {figura} llegó",
+          "un viento frío sopló"
+        ],
+        "conflicto": [
+          "{N} se escondió",
+          "{figura} {lo} persiguió",
+          "[dia] {N} gritó: «¡Yo no!»",
+          "con {elemento} se protegió"
+        ],
+        "resolucion": [
+          "[L] y al panteón se {lo} llevó",
+          "[E] y {figura} se rindió",
+          "[F] y la fiesta comenzó"
+        ],
+        "remate": [
+          "[L] y su historia terminó",
+          "[E] ¡y {figura} ni {lo} encontró!",
+          "[F] y el baile nunca acabó",
+          "[L] y en el panteón se quedó",
+          "[E] y la Muerte se cansó",
+          "[F] y la Muerte se divirtió"
+        ]
+      }
+    },
+    {
+      "id": "ura",
+      "lines": {
+        "presentacion": [
+          "{N}, toda una dulzura,",
+          "{N}, de gran estatura,"
+        ],
+        "rasgo": [
+          "{gusto} era su locura",
+          "{anecdota}, ¡qué travesura!",
+          "era {cualidad}, cosa segura",
+          "siempre andaba de travesura"
+        ],
+        "llegada": [
+          "{figura} salió de la sepultura",
+          "{figura}, con gran finura,",
+          "llegó una noche oscura"
+        ],
+        "conflicto": [
+          "[dia] le dijo: «Vamos a la sepultura»",
+          "[fan] {N} sacó una armadura",
+          "{N} perdió la compostura",
+          "con {elemento} y gran bravura"
+        ],
+        "resolucion": [
+          "[L] y {lo} metió en la sepultura",
+          "[E] y {N} escapó con premura",
+          "[F] y bailaron con soltura"
+        ],
+        "remate": [
+          "[L] y ahora duerme con ternura",
+          "[E] ¡vaya aventura!",
+          "[F] ¡qué noche de locura!",
+          "[L] y le pusieron flores con ternura",
+          "[E] y sigue en pie con frescura",
+          "[F] y todo acabó en dulzura"
+        ]
+      }
+    },
+    {
+      "id": "ad",
+      "lines": {
+        "presentacion": [
+          "{N}, famos{o} en la ciudad,",
+          "{N} era pura bondad"
+        ],
+        "rasgo": [
+          "sabía {gusto} con habilidad",
+          "era {cualidad}, de verdad",
+          "{anecdota}, ¡qué barbaridad!",
+          "decía siempre la verdad",
+          "cargaba {elemento} por la ciudad"
+        ],
+        "llegada": [
+          "{figura} llegó con seriedad",
+          "{figura}, desde la oscuridad,",
+          "se oyó un ruido en la oscuridad"
+        ],
+        "conflicto": [
+          "[dia] le dijo: «Vente a la eternidad»",
+          "[dia] {N} dijo: «¡Qué calamidad!»"
+        ],
+        "resolucion": [
+          "[L] y se fue a la eternidad",
+          "[E] y huyó por toda la ciudad",
+          "[F] y nació una gran amistad"
+        ],
+        "remate": [
+          "[L] y descansa en paz, de verdad",
+          "[F] ¡y que viva la amistad!",
+          "[E] y vive con felicidad",
+          "[L] y allá descansa en la eternidad",
+          "[E] y vive en libertad",
+          "[F] ¡y viva la felicidad!"
+        ]
+      }
+    },
+    {
+      "id": "ana",
+      "lines": {
+        "presentacion": [
+          "{N} se levantó una mañana",
+          "{N}, siempre de buena gana,"
+        ],
+        "rasgo": [
+          "quería {gusto} cada mañana",
+          "le encantaba {gusto} toda la semana",
+          "cantaba por la ventana"
+        ],
+        "llegada": [
+          "{figura} tocó la ventana",
+          "{figura} sonó la campana"
+        ],
+        "conflicto": [
+          "[dia] le dijo: «Hoy no hay mañana»",
+          "{N} saltó por la ventana"
+        ],
+        "resolucion": [
+          "[L] y se fue esa misma mañana",
+          "[F] y bailaron hasta la mañana",
+          "[E] y se escondió en una palangana"
+        ],
+        "remate": [
+          "[L] y por {N} sonó la campana",
+          "[F] ¡y la fiesta sigue mañana!",
+          "[E] y {figura} volverá otra semana",
+          "[L] y le rezan cada semana",
+          "[E] y quizás la Muerte vuelva mañana",
+          "[F] y quedaron de verse otra semana"
+        ]
+      }
+    },
+    {
+      "id": "ante",
+      "lines": {
+        "presentacion": [
+          "{N}, siempre tan elegante,",
+          "{N}, {oficio} importante,"
+        ],
+        "rasgo": [
+          "{gusto} era lo más importante",
+          "{anecdota} en un instante",
+          "tenía un humor muy brillante"
+        ],
+        "llegada": [
+          "{figura} llegó elegante",
+          "llegó {figura} al instante",
+          "se apagó la luz en un instante"
+        ],
+        "conflicto": [
+          "[dia] le dijo: «¡Vámonos, adelante!»",
+          "[dia] {N} le dijo: «¡Espera un instante!»"
+        ],
+        "resolucion": [
+          "[L] y se {lo} llevó al instante",
+          "[E] y {N} siguió adelante",
+          "[F] y armaron un baile brillante"
+        ],
+        "remate": [
+          "[E] y sigue vivit{o} y radiante",
+          "[L] y su tumba es muy elegante",
+          "[F] ¡qué fiesta tan emocionante!",
+          "[L] y en su ofrenda hay pan abundante",
+          "[F] y bailaron con un elefante"
+        ]
+      }
+    },
+    {
+      "id": "ores",
+      "lines": {
+        "presentacion": [
+          "{N}, de los mejores,",
+          "{N} amaba las flores"
+        ],
+        "rasgo": [
+          "era {cualidad}, de los mejores",
+          "[tie] llenaba la casa de colores",
+          "le encantaban los colores"
+        ],
+        "llegada": [
+          "{figura} llegó entre flores",
+          "{figura}, con tambores,",
+          "se oyeron unos tambores"
+        ],
+        "conflicto": [
+          "{N} le ofreció flores",
+          "[dia] {N} pidió: «¡Por favor, señores!»"
+        ],
+        "resolucion": [
+          "[F] y bailaron con tambores",
+          "[L] y {lo} cubrieron de flores"
+        ],
+        "remate": [
+          "[L] y en su tumba hay muchas flores",
+          "[F] ¡y que vivan los mejores!",
+          "[L] y le llevan pan y flores",
+          "[E] y escapó entre los tambores",
+          "[F] ¡y vivan los buenos sabores!"
+        ]
+      }
+    },
+    {
+      "id": "ento",
+      "lines": {
+        "presentacion": [
+          "{N}, de quien trata este cuento,",
+          "{N}, llen{o} de talento,"
+        ],
+        "rasgo": [
+          "quería {gusto} a cada momento",
+          "{anecdota} en un momento",
+          "era {cualidad}, y con talento",
+          "contaba siempre algún cuento"
+        ],
+        "llegada": [
+          "llegó {figura} en ese momento",
+          "{figura} llegó como el viento",
+          "sopló un helado viento"
+        ],
+        "conflicto": [
+          "{N} perdió el aliento",
+          "[dia] le dijo: «Ya es el momento»",
+          "con {elemento} hizo un gran invento"
+        ],
+        "resolucion": [
+          "[L] y se fue con el viento",
+          "[E] y se escapó al primer intento",
+          "[F] y se armó un gran evento"
+        ],
+        "remate": [
+          "[fin] y colorín, se acabó el cuento",
+          "[F] ¡y bailaron sin ningún lamento!",
+          "[L] y en su tumba hay un monumento",
+          "[E] y sigue fuerte como el viento",
+          "[F] y bailaron al compás del viento"
+        ]
+      }
+    }
+  ]
+}

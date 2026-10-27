@@ -1,0 +1,85 @@
+/* Tokens de diseño. Texto siempre oscuro sobre claro (sin grises tenues). */
+:root {
+  --noche: #26123F;
+  --morado: #5B2A86;
+  --morado-oscuro: #3E1A60;
+  --petroleo: #5B2A86;
+  --petroleo-oscuro: #3E1A60;
+  --ambar: #F28C0F;
+  --ambar-oscuro: #8A3B00;
+  --turquesa: #1FA39B;
+  --marfil: #FFF6E3;
+  --tinta: #1E1D1A;
+  --tinta-suave: #3A3935;
+  --borde: #5F5E5A;
+  --rosa-mexicano: #B5175E;
+
+  --color-bg: var(--marfil);
+  --color-surface: #FFFFFF;
+  --color-surface-2: #FBEBCB;
+  --color-text: var(--tinta);
+  --color-text-soft: var(--tinta-suave);
+  --color-border: var(--borde);
+  --color-primary: var(--petroleo);
+  --color-primary-strong: var(--petroleo-oscuro);
+  --color-on-primary: #FFFFFF;
+  --color-accent: var(--ambar);
+  --color-on-accent: #1E1D1A;
+  --color-ok: #1D6B2F;
+  --color-warn: #8A5A00;
+  --color-error: #A3201B;
+  --color-focus: #B5175E;
+
+  --font-ui: Arial, Helvetica, sans-serif;
+  --font-display: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-scale: 1;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --tap: 48px;
+  --measure: 72ch;
+}
+
+:root[data-theme="oscuro"] {
+  --color-bg: #1B0E2E;
+  --color-surface: #2A1745;
+  --color-surface-2: #38205A;
+  --color-text: #FFF6E3;
+  --color-text-soft: #EADFF5;
+  --color-border: #B9A5D6;
+  --color-primary: #C79BFF;
+  --color-primary-strong: #E3CBFF;
+  --color-on-primary: #1B0E2E;
+  --color-ok: #7BD88F;
+  --color-warn: #FFC247;
+  --color-error: #FF8A80;
+  --color-focus: #FFC247;
+}
+
+:root[data-theme="contraste"] {
+  --color-bg: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #FFFFFF;
+  --color-text: #000000;
+  --color-text-soft: #000000;
+  --color-border: #000000;
+  --color-primary: #004A47;
+  --color-primary-strong: #002E2C;
+  --color-on-primary: #FFFFFF;
+  --color-accent: #FFB000;
+  --color-ok: #00511A;
+  --color-warn: #5C3B00;
+  --color-error: #8B0000;
+  --color-focus: #000000;
+}
+
+:root[data-font="verdana"] { --font-ui: Verdana, Geneva, sans-serif; }
+:root[data-font="atkinson"] { --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }

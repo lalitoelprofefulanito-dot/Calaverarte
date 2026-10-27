@@ -1,0 +1,54 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: calc(118.75% * var(--font-scale));
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg) radial-gradient(circle at 12% 8%, rgba(242,140,15,0.12), transparent 40%) fixed;
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  line-height: 1.55;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; margin: 0 0 var(--space-3); }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.45rem; }
+h2::before { content: ""; display: inline-block; width: 1.05em; height: 1.05em; margin-right: 0.4em; vertical-align: -0.12em; background: url('../assets/cempasuchil.svg') center / contain no-repeat; }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 var(--space-3); max-width: var(--measure); }
+a { color: var(--color-primary-strong); text-underline-offset: 3px; }
+img, svg { max-width: 100%; }
+
+:focus-visible {
+  outline: 4px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute; left: var(--space-3); top: -100px;
+  background: var(--color-primary); color: var(--color-on-primary);
+  padding: var(--space-3) var(--space-4); z-index: 100; border-radius: var(--radius-s);
+}
+.skip-link:focus { top: var(--space-3); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+:root[data-reduce-motion="true"] * { animation: none !important; transition: none !important; }
+
+/* Los títulos reciben el foco por programa al cambiar de vista; no son controles. */
+[tabindex="-1"]:focus:not(:focus-visible), h1[tabindex="-1"]:focus { outline: none; }

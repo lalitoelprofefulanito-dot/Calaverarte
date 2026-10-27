@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "deathFigures": {
+    "tradicional": ["la Muerte", "la Calaca", "la Flaca", "la Huesuda", "la Pelona"],
+    "humoristico": ["la Calaca", "la Pelona", "la Dientona", "la Flaca"],
+    "infantil": ["la Catrina", "la Calaca", "la Calaquita"],
+    "satirico": ["la Muerte", "la Huesuda", "la Pelona", "la Dientona"],
+    "tierno": ["la Catrina", "la Calaquita", "la Calaca"],
+    "fantastico": ["la Catrina", "la Muerte", "la Calaca"],
+    "narrativo": ["la Muerte", "la Catrina", "la Calaca"]
+  },
+  "titlePatterns": {
+    "tradicional": ["Calaverita para {N}", "Aquí yace {N}", "La Muerte y {N}"],
+    "humoristico": ["El día que {N} engañó a la Calaca", "{N} y la Pelona", "¡Ay, {N}!"],
+    "infantil": ["{N} y la Catrina", "La aventura de {N}", "Una calaverita para {N}"],
+    "satirico": ["Epitafio de {N}", "{N}, en el panteón", "Lo que dejó {N}"],
+    "tierno": ["Con cariño, para {N}", "{N} y la Catrina", "Un recuerdo para {N}"],
+    "fantastico": ["{N} y la Catrina encantada", "El viaje de {N} al Mictlán", "{N} contra la Muerte"],
+    "narrativo": ["La historia de {N}", "{N} y la Muerte", "Calaverita de {N}"]
+  },
+  "deathKeywords": ["muerte", "calaca", "catrina", "flaca", "huesuda", "pelona", "dientona", "parca", "calaquita", "calavera"],
+  "closureKeywords": ["panteón", "tumba", "sepultura", "descansa", "descanse", "lápida", "eternidad", "fiesta", "baile", "bailaron", "escapó", "huyó", "acaba", "acabó", "terminó", "termina", "cuento", "fin", "salvó", "llevó", "festejar", "celebración"],
+  "kidsAvoid": ["matar", "mató", "sangre", "asesin", "cadáver", "cadaver", "borracho", "chela", "cerveza", "tequila", "mezcal", "pistola", "cuchillo", "pinche", "idiota", "estúpido", "estupido", "chingar", "cabrón", "cabron", "pendejo", "puta", "verga", "sexo", "droga"],
+  "stopwords": ["a", "al", "con", "de", "del", "el", "ella", "él", "en", "es", "la", "las", "le", "lo", "los", "me", "mi", "muy", "no", "por", "que", "se", "su", "sus", "te", "un", "una", "y", "ya", "pero", "como", "era", "fue", "más", "sin", "tan", "hay", "aquí", "así", "para", "qué", "ni", "o", "u", "e", "sí"],
+  "wordBank": [
+    "día", "alegría", "fantasía", "puntería", "valentía", "compañía", "poesía", "todavía", "energía", "lotería", "panadería", "melodía", "sabía", "decía", "reía", "vivía", "corría", "tenía",
+    "panteón", "corazón", "canción", "razón", "montón", "lección", "ocasión", "emoción", "colchón", "cajón", "pantalón", "ratón", "jabón", "melón", "balón", "sillón", "función", "pasión",
+    "bailar", "cantar", "llegar", "trabajar", "descansar", "enterrar", "platicar", "jugar", "escapar", "pasear", "lugar", "mar", "altar", "hogar", "soñar", "volar", "olvidar", "contar",
+    "cansado", "asustado", "enterrado", "olvidado", "preparado", "pescado", "helado", "dorado", "colorado", "callado", "pelado", "soldado",
+    "vida", "comida", "despedida", "salida", "enseguida", "querida", "escondida", "partida", "medida", "bebida", "avenida", "dormida",
+    "calavera", "manera", "entera", "cualquiera", "espera", "carrera", "primera", "afuera", "pradera", "escalera", "tortillera", "cartera", "bandera", "cabecera",
+    "gente", "diferente", "valiente", "repente", "frente", "sonriente", "presente", "siguiente", "caliente", "diente", "puente", "serpiente", "inteligente", "paciente",
+    "llegó", "llevó", "gritó", "escapó", "asustó", "encontró", "dejó", "salió", "terminó", "bailó", "cantó", "comió", "durmió", "voló", "yo", "no",
+    "sepultura", "locura", "travesura", "ternura", "figura", "altura", "segura", "dulzura", "cintura", "aventura", "basura", "pintura", "verdura", "armadura",
+    "verdad", "ciudad", "eternidad", "amistad", "bondad", "mitad", "oscuridad", "felicidad", "Navidad", "edad", "libertad", "habilidad",
+    "mañana", "ventana", "campana", "galana", "semana", "hermana", "gana", "manzana", "banana", "lana", "sotana", "palangana",
+    "elegante", "adelante", "instante", "bastante", "importante", "galante", "brillante", "constante", "gigante", "elefante", "estudiante", "cantante",
+    "flores", "colores", "amores", "mejores", "señores", "tambores", "olores", "sabores", "dolores", "doctores", "pintores", "tenores",
+    "momento", "contento", "cuento", "aliento", "intento", "lento", "atento", "invento", "viento", "cemento", "talento", "lamento", "evento", "pimiento",
+    "pan", "Juan", "tamal", "atole", "cempasúchil", "copal", "ofrenda", "vela", "papel", "hueso", "esqueleto", "tumba", "noviembre", "octubre", "Mictlán", "xoloitzcuintle", "veladora", "incienso"
+  ]
+}

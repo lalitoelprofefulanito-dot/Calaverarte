@@ -1,0 +1,52 @@
+/* Hoja de la calaverita: temas gráficos. El texto siempre conserva contraste alto. */
+.sheet {
+  --sheet-bg: #FFFBF0;
+  --sheet-ink: #1E1D1A;
+  --sheet-accent: #0F6E6A;
+  --sheet-border: #0F6E6A;
+  position: relative;
+  background: var(--sheet-bg);
+  color: var(--sheet-ink);
+  font-family: var(--sheet-font, Georgia, serif);
+  font-size: var(--sheet-size, 22px);
+  line-height: var(--sheet-leading, 1.6);
+  text-align: var(--sheet-align, center);
+  padding: 3.2em 2em 2.4em;
+  border: 4px solid var(--sheet-border);
+  border-radius: 10px;
+  max-width: 44rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.sheet__title { font-family: inherit; font-size: 1.45em; color: var(--sheet-accent); margin: 0 0 0.9em; text-align: center; }
+.sheet__body { position: relative; z-index: 1; }
+.sheet__stanza { margin: 0 0 1em; }
+.sheet__stanza p { margin: 0; max-width: none; }
+.sheet__ornament { position: absolute; z-index: 0; pointer-events: none; }
+.sheet__ornament--top { top: 0; left: 0; right: 0; height: 2.4em; }
+.sheet__ornament--top svg { width: 100%; height: 100%; display: block; }
+.sheet__ornament--corner { bottom: 0.6em; right: 0.6em; width: 3.2em; height: 3.2em; }
+.sheet__ornament--corner svg { width: 100%; height: 100%; }
+.sheet--layout-titulo-abajo .sheet__title { order: 2; margin: 1em 0 0; }
+.sheet--layout-titulo-abajo .sheet__inner { display: flex; flex-direction: column; }
+.sheet--layout-titulo-abajo .sheet__title::before { content: "† "; }
+.sheet--layout-dos-columnas .sheet__body { column-count: 2; column-gap: 2em; }
+.sheet--layout-dos-columnas .sheet__stanza { break-inside: avoid; }
+@media (max-width: 600px) { .sheet--layout-dos-columnas .sheet__body { column-count: 1; } .sheet { padding: 3em 1.1em 2em; } }
+
+.sheet--papel-picado { --sheet-accent: #B5175E; --sheet-border: #B5175E; }
+.sheet--cempasuchil { --sheet-bg: #FFF4DA; --sheet-accent: #8A4B00; --sheet-border: #D98E04; }
+.sheet--catrina { --sheet-bg: #1E1D1A; --sheet-ink: #FFFBF0; --sheet-accent: #F2C14E; --sheet-border: #F2C14E; }
+.sheet--catrina .sheet__title { font-style: italic; letter-spacing: 0.02em; }
+.sheet--cuaderno {
+  --sheet-bg: #FFFFFF; --sheet-accent: #0B3D91; --sheet-border: #0B3D91;
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--sheet-leading, 1.6) * 1em - 2px), #9DB7E0 calc(var(--sheet-leading, 1.6) * 1em - 2px), #9DB7E0 calc(var(--sheet-leading, 1.6) * 1em));
+  background-position: 0 3.2em;
+  border-left: 14px double #C0392B;
+}
+.sheet--grabado { --sheet-bg: #F2EBDD; --sheet-accent: #1E1D1A; --sheet-border: #1E1D1A; border-width: 6px; box-shadow: inset 0 0 0 6px #F2EBDD, inset 0 0 0 8px #1E1D1A; }
+.sheet--minimalista { --sheet-bg: #FFFFFF; --sheet-accent: #1E1D1A; --sheet-border: #1E1D1A; border-width: 2px; }
+
+.sheet--border-ninguno { border-color: transparent; box-shadow: none; }
+.sheet--border-simple { border: 3px solid var(--sheet-border); box-shadow: none; }
+.sheet--border-doble { border: 9px double var(--sheet-border); }

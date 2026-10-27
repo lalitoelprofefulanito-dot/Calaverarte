@@ -1,0 +1,76 @@
+name: Validar y publicar CalaverArte
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias bloqueadas
+        run: npm ci
+
+      - name: Revisar calidad del código
+        run: npm run lint
+
+      - name: Ejecutar pruebas unitarias y de integración
+        run: npm test
+
+      - name: Compilar para producción
+        run: npm run build
+
+      - name: Verificar que se compiló la aplicación y no el código fuente
+        shell: bash
+        run: |
+          test -s dist/index.html
+          test -d dist/assets
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const html = fs.readFileSync('dist/index.html', 'utf8');
+          if (html.includes('./src/main.js') || html.includes('/src/main.js')) {
+            throw new Error('El HTML de producción sigue apuntando al código fuente de src/main.js.');
+          }
+          if (!/\.\/assets\/[^"']+\.js/.test(html)) {
+            throw new Error('No se encontró el JavaScript compilado en dist/index.html.');
+          }
+          if (!/\.\/assets\/[^"']+\.css/.test(html)) {
+            throw new Error('No se encontró el CSS compilado en dist/index.html.');
+          }
+          console.log('OK: dist contiene HTML, JavaScript y CSS compilados.');
+          NODE
+
+      - name: Preparar artefacto de GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build-and-validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,11 @@
+{
+  "name": "CalaverArte · Taller de calaveritas literarias",
+  "short_name": "CalaverArte",
+  "description": "Generador, editor y taller de calaveritas literarias mexicanas que funciona en tu dispositivo.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FFF6E3",
+  "theme_color": "#26123F",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

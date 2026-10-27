@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "stages": [
+    {
+      "id": "presentacion",
+      "label": "Presentación del protagonista"
+    },
+    {
+      "id": "rasgo",
+      "label": "Su característica o situación"
+    },
+    {
+      "id": "llegada",
+      "label": "Llega la Muerte"
+    },
+    {
+      "id": "conflicto",
+      "label": "Conflicto"
+    },
+    {
+      "id": "resolucion",
+      "label": "Resolución"
+    },
+    {
+      "id": "remate",
+      "label": "Remate final"
+    }
+  ],
+  "shortArcs": {
+    "4": [
+      "presentacion",
+      "llegada",
+      "resolucion",
+      "remate"
+    ],
+    "5": [
+      "presentacion",
+      "rasgo",
+      "llegada",
+      "resolucion",
+      "remate"
+    ]
+  },
+  "stageFallbacks": {
+    "presentacion": [
+      "rasgo"
+    ],
+    "rasgo": [
+      "presentacion"
+    ],
+    "llegada": [],
+    "conflicto": [
+      "llegada"
+    ],
+    "resolucion": [
+      "remate"
+    ],
+    "remate": [
+      "resolucion"
+    ]
+  },
+  "endings": [
+    {
+      "id": "L",
+      "label": "La Muerte se lo lleva (final tradicional)"
+    },
+    {
+      "id": "E",
+      "label": "Escapa de la Muerte"
+    },
+    {
+      "id": "F",
+      "label": "Fiesta con la Muerte"
+    }
+  ],
+  "endingWeightsByTone": {
+    "tradicional": {
+      "L": 6,
+      "E": 2,
+      "F": 2
+    },
+    "humoristico": {
+      "L": 3,
+      "E": 4,
+      "F": 3
+    },
+    "infantil": {
+      "L": 0,
+      "E": 5,
+      "F": 5
+    },
+    "satirico": {
+      "L": 6,
+      "E": 3,
+      "F": 1
+    },
+    "tierno": {
+      "L": 1,
+      "E": 3,
+      "F": 6
+    },
+    "fantastico": {
+      "L": 2,
+      "E": 5,
+      "F": 3
+    },
+    "narrativo": {
+      "L": 4,
+      "E": 3,
+      "F": 3
+    }
+  },
+  "toneCodes": {
+    "tradicional": "tra",
+    "humoristico": "hum",
+    "infantil": "inf",
+    "satirico": "sat",
+    "tierno": "tie",
+    "fantastico": "fan",
+    "narrativo": "nar"
+  }
+}

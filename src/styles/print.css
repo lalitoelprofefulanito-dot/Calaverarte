@@ -1,0 +1,10 @@
+@media print {
+  @page { margin: 14mm; }
+  body { background: #FFFFFF !important; }
+  body.is-printing > *:not(#print-root) { display: none !important; }
+  body.is-printing #print-root { display: block !important; }
+  .sheet { max-width: none; border-radius: 0; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .activity-sheet { border: none; padding: 0; font-size: 14pt; }
+  .answer-key { break-before: page; }
+  .no-print { display: none !important; }
+}
