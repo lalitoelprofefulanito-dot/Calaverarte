@@ -19,7 +19,6 @@ import { renderEducation } from './modules/education/education-view.js';
 import { renderLibrary } from './modules/library/library-view.js';
 import { renderDesigner } from './modules/designer/designer-view.js';
 import { renderSettings } from './modules/settings/settings-view.js';
-import { renderCredits } from './modules/credits/credits-view.js';
 
 const VIEWS = {
   inicio: renderHome,
@@ -31,7 +30,6 @@ const VIEWS = {
   biblioteca: renderLibrary,
   disenador: renderDesigner,
   configuracion: renderSettings,
-  creditos: renderCredits,
 };
 
 export function createApp() {

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
 
-const VIEWS = ['inicio', 'crear', 'editor', 'taller', 'evaluacion', 'educacion', 'biblioteca', 'disenador', 'configuracion', 'creditos'];
+const VIEWS = ['inicio', 'crear', 'editor', 'taller', 'evaluacion', 'educacion', 'biblioteca', 'disenador', 'configuracion'];
 
 /** Genera una calaverita desde el formulario y espera al editor. */
 async function createPoem(page, { name = 'Doña Lupe', stanzas = '3', verses = '4' } = {}) {
@@ -20,17 +20,6 @@ async function createPoem(page, { name = 'Doña Lupe', stanzas = '3', verses = '
 const verseValues = (page, stanza) => page.locator('.stanza-card').nth(stanza).locator('.verse-row input').evaluateAll((els) => els.map((e) => e.value));
 
 test.describe('CalaverArte', () => {
-  test('Autoría y referencias: muestra la cita APA y los prompts documentados', async ({ page }) => {
-    await page.goto('/#/creditos');
-    await expect(page.getByRole('heading', { name: 'Autoría y referencias' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Cómo citar CalaverArte en APA 7' })).toBeVisible();
-    await expect(page.locator('.credits__citation')).toContainText('Kantún Martínez, E. (2026)');
-    await expect(page.getByRole('heading', { name: 'Autoría y reconocimiento del apoyo de IA' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Prompts documentados' })).toBeVisible();
-    await expect(page.locator('.credits__prompt')).toHaveCount(5);
-    await expect(page.getByRole('button', { name: 'Descargar registro completo en Markdown' })).toBeVisible();
-  });
-
   test('CA-01 / CA-15: inicia sin errores y sin peticiones externas', async ({ page }) => {
     const errors = [];
     const external = [];

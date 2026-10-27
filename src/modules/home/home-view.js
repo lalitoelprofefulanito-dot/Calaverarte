@@ -44,7 +44,6 @@ export async function renderHome(app) {
     ['educacion', 'Modo educativo', 'Actividades imprimibles por nivel: completar versos, ordenar estrofas, guías de revisión.'],
     ['disenador', 'Diseñador e impresión', 'Elige un estilo gráfico, imprime o guarda como PDF desde tu navegador.'],
     ['configuracion', 'Configuración', 'Tamaño de letra, tema de colores y respaldo de tus datos.'],
-    ['creditos', 'Autoría y referencias APA', 'Consulta la cita de CalaverArte, el reconocimiento del apoyo de IA y los prompts documentados.'],
   ];
   const quick = el('section', { 'aria-labelledby': 'accesos' },
     el('h2', { id: 'accesos' }, 'Más herramientas'),

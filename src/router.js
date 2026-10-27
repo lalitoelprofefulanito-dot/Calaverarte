@@ -9,7 +9,6 @@ export const ROUTES = [
   { id: 'biblioteca', label: 'Biblioteca' },
   { id: 'disenador', label: 'Diseñador' },
   { id: 'configuracion', label: 'Configuración' },
-  { id: 'creditos', label: 'Autoría y referencias APA' },
 ];
 
 export function parseHash(hash = location.hash) {

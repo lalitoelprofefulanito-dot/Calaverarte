@@ -47,11 +47,9 @@ npm run test:e2e     # Playwright: flujos completos en escritorio y móvil
 
 La carpeta `dist/` es un sitio estático: sirve en cualquier hosting con HTTPS (GitHub Pages, Netlify, Cloudflare Pages). La base relativa (`base: './'`) permite publicarla en una subcarpeta.
 
-**GitHub Pages:** publica siempre el resultado de Vite, no el `index.html` fuente. En el repositorio activa *Settings → Pages → Build and deployment → Source: GitHub Actions*. Asegúrate de subir también `.github/workflows/deploy.yml`, incluida la carpeta oculta `.github`. El flujo **Validar y publicar CalaverArte** instala dependencias, ejecuta lint y pruebas, compila, comprueba que `dist/index.html` apunte a los recursos compilados y publica únicamente `dist/`.
+**GitHub Pages:** sube el repositorio y activa *Settings → Pages → Source: GitHub Actions*. El flujo `.github/workflows/deploy.yml` ejecuta lint y pruebas, compila y publica en cada `push` a `main`. Después abre la dirección publicada y crea una calaverita para verificarla.
 
-**Si la web se ve sin diseño o solo aparecen el encabezado y el aviso de privacidad:** lo más probable es que Pages esté sirviendo el código fuente sin compilar, o un HTML de un solo archivo incompleto. No cambies la raíz a `src/` ni publiques la carpeta `src/`. Cambia la fuente de Pages a **GitHub Actions**, sube el flujo y revisa la pestaña **Actions**. La publicación correcta debe mostrar una ejecución llamada **Validar y publicar CalaverArte**; si solo aparecen ejecuciones genéricas de `pages-build-deployment`, revisa que el workflow personalizado se haya subido.
-
-La compilación incluye una política de seguridad (`connect-src 'none'`) para impedir conexiones de red desde la app. Los estilos en línea se permiten porque algunas opciones visuales y la vista de impresión modifican propiedades de estilo en el DOM; los scripts siguen limitados a archivos del mismo origen.
+La compilación incluye una política de seguridad (`connect-src 'none'`) que impide cualquier conexión de red desde la app.
 
 ## Estructura
 
@@ -87,16 +85,6 @@ docs/   modelo de datos, limitaciones, informe de pruebas, casos literarios
 
 `src/adapters/generation-provider.js` define el contrato que tendría que cumplir otro proveedor. No se incluye ninguno; añadirlo requiere pedir consentimiento explícito antes de enviar texto y ampliar `connect-src` en `vite.config.js`.
 
-## Autoría y referencia APA
-
-Consulta el documento [Autoría, referencia APA y registro de prompts](docs/autoria-y-prompts.md) o abre en la aplicación la sección **Autoría y referencias APA**. Incluye la cita de CalaverArte, la declaración de autoría y los principales prompts documentados.
-
 ## Licencia
 
 MIT. Las ilustraciones (papel picado, calaverita, cempasúchil) son SVG originales del proyecto. Las tipografías son las del sistema; no se descargan fuentes externas.
-
-## Autoría, referencias y prompts
-
-La aplicación incluye la sección **Autoría y referencias APA**, accesible desde la navegación principal y desde el pie de página. Documenta la referencia de CalaverArte, el reconocimiento de apoyo de ChatGPT y Claude y los principales prompts identificados en la conversación de planificación y diagnóstico. La sección distingue el apoyo durante el desarrollo del comportamiento en producción: el motor local no usa IA ni envía poemas a servicios externos.
-
-El registro visible identifica expresamente que el prompt maestro se muestra como versión documental resumida y que no constituye una exportación automática del historial de Claude. La página permite copiar la referencia APA y cada prompt, así como descargar el registro en Markdown.

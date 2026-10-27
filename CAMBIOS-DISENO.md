@@ -15,3 +15,7 @@ Después sube estos archivos a `main`. La pestaña **Actions** compila (`npm run
 - `src/assets/`: `papel-picado.svg` y `cempasuchil.svg`.
 - `.github/workflows/deploy.yml`: la publicación ya no depende de las pruebas (corren aparte y avisan si fallan).
 - `public/favicon.svg`, `manifest.webmanifest`, `index.html`: colores nuevos.
+
+## Publicación sin Actions
+`docs/index.html` es la app ya compilada en un solo archivo. En Settings → Pages elige
+*Deploy from a branch* → rama `main` → carpeta `/docs`.

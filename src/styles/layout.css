@@ -44,8 +44,6 @@
   padding: var(--space-5) var(--space-4); text-align: center; font-size: 0.9rem;
 }
 .app-footer p { margin: 0 auto; }
-.app-footer__credits { margin-top: var(--space-2) !important; }
-.app-footer__credits a { color: #FFC247; font-weight: bold; }
 
 .view-header { margin-bottom: var(--space-5); }
 .view-header p { color: var(--color-text-soft); }
