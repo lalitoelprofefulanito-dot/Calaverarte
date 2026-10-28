@@ -49,3 +49,16 @@ describe('evaluador', () => {
     expect(rhyme.suggestions[0].text).toMatch(/riman con «panteón»/);
   });
 });
+
+describe('comprobación de octosílabos', () => {
+  it('aprueba la calaverita modelo y marca versos largos', async () => {
+    const { MODEL_POEM } = await import('../../src/modules/workshop/formula.js');
+    const model = createPoem({ title: MODEL_POEM.title, params: { scheme: 'alternada' }, stanzas: MODEL_POEM.stanzas });
+    expect(evaluatePoem(model).checks.find((c) => c.id === 'octosilabos').status).toBe('ok');
+    const long = createPoem({ title: 'x', params: { scheme: 'libre' }, stanzas: [{ verses: ['Este verso tiene muchísimas más sílabas de las que debería', 'y este también es demasiado largo para una calaverita'] }] });
+    const result = evaluatePoem(long).checks.find((c) => c.id === 'octosilabos');
+    expect(result.status).toBe('revisar');
+    expect(result.suggestions.length).toBe(2);
+  });
+});
+

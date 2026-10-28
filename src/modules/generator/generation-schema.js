@@ -2,6 +2,7 @@
 import { sanitizeText, splitNames } from '../../core/normalization.js';
 import { hasLetters } from '../../core/validation.js';
 import { getProfile } from '../education/grade-profiles.js';
+import { checkPhrases } from './phrase-guide.js';
 
 export const TONES = [
   { id: 'tradicional', label: 'Tradicional mexicano' },
@@ -37,6 +38,7 @@ export const DEFAULT_PARAMS = Object.freeze({
   cualidad: '',
   lugar: '',
   anecdota: '',
+  defensa: '',
   tone: 'tradicional',
   audience: 'general',
   level: 'general',
@@ -49,7 +51,7 @@ export const DEFAULT_PARAMS = Object.freeze({
   avoid: '',
 });
 
-const TEXT_FIELDS = ['names', 'oficio', 'gusto', 'cualidad', 'lugar', 'anecdota', 'mustInclude', 'avoid'];
+const TEXT_FIELDS = ['names', 'oficio', 'gusto', 'cualidad', 'lugar', 'anecdota', 'defensa', 'mustInclude', 'avoid'];
 
 /**
  * Valida y normaliza los parámetros. Nunca lanza: devuelve
@@ -91,5 +93,7 @@ export function validateParams(raw = {}) {
   if (params.audience === 'educativo' && getProfile(params.level)?.kidsSafe && params.tone === 'satirico' && params.level !== 'secundaria') {
     errors.tone = 'El tono satírico no está disponible para preescolar ni primaria. Elige otro tono.';
   }
-  return { ok: Object.keys(errors).length === 0, params, errors };
+  const phrases = checkPhrases(params, raw.acceptAsIs || {});
+  for (const [field, message] of Object.entries(phrases.errors)) if (!errors[field]) errors[field] = message;
+  return { ok: Object.keys(errors).length === 0, params, errors, suggestions: phrases.suggestions };
 }

@@ -19,6 +19,7 @@ import { renderEducation } from './modules/education/education-view.js';
 import { renderLibrary } from './modules/library/library-view.js';
 import { renderDesigner } from './modules/designer/designer-view.js';
 import { renderSettings } from './modules/settings/settings-view.js';
+import { renderCredits } from './modules/credits/credits-view.js';
 
 const VIEWS = {
   inicio: renderHome,
@@ -30,6 +31,7 @@ const VIEWS = {
   biblioteca: renderLibrary,
   disenador: renderDesigner,
   configuracion: renderSettings,
+  creditos: renderCredits,
 };
 
 export function createApp() {
@@ -133,7 +135,7 @@ export function createApp() {
 
   function renderNav(active) {
     const nav = document.getElementById('main-nav');
-    clear(nav).append(el('ul', {}, ROUTES.map((r) => el('li', {},
+    clear(nav).append(el('ul', {}, ROUTES.filter((r) => !r.hidden).map((r) => el('li', {},
       el('a', { href: `#/${r.id}`, 'aria-current': r.id === active ? 'page' : undefined }, r.label)))));
   }
 

@@ -11,9 +11,10 @@ import { splitNames, joinNames, normalizeForSearch, collapseSpaces, capitalizeFi
 import { stagesByStanza, chooseEnding, toneCode } from './narrative-builder.js';
 import { buildStanza } from './stanza-builder.js';
 import { deathFiguresFor, titlePatternsFor } from './vocabulary.js';
+import { HOOK_FIELDS } from './templates.js';
 import { getProfile } from '../education/grade-profiles.js';
 
-export const ENGINE_VERSION = 1;
+export const ENGINE_VERSION = 2;
 
 const WARNING_MESSAGES = {
   'rima-no-disponible': 'En alguna estrofa no hubo una rima natural con los datos dados; esos versos quedaron sin rimar en lugar de forzar palabras.',
@@ -30,7 +31,14 @@ function midSentence(text) {
 
 const splitList = (text) => collapseSpaces(text || '').split(/\s*[,;]\s*/).map((t) => t.trim()).filter(Boolean);
 
-export function buildContext(params, { ending, figure }) {
+/** Elige el dato alrededor del cual gira la historia (o ninguno). */
+export function chooseHook(params, rng) {
+  const isGroup = splitNames(params.names).length > 1;
+  const available = HOOK_FIELDS.filter((field) => collapseSpaces(params[field] || '') && !(isGroup && field === 'oficio'));
+  return available.length ? rng.pick(available) : null;
+}
+
+export function buildContext(params, { ending, figure, hook = null }) {
   const names = splitNames(params.names);
   const isGroup = names.length > 1;
   const gender = isGroup ? 'a' : params.gender === 'a' ? 'a' : 'o';
@@ -39,22 +47,26 @@ export function buildContext(params, { ending, figure }) {
     names,
     ending,
     figure,
+    hook,
     toneCode: toneCode(params.tone),
     kidsSafe: params.tone === 'infantil' || Boolean(profile?.kidsSafe),
     preferDialogue: Boolean(params.preferDialogue),
     avoid: splitList(params.avoid).map(normalizeForSearch).filter(Boolean),
     mustInclude: splitList(params.mustInclude),
     shortName: isGroup ? 'la pandilla' : null,
+    rawOficio: params.oficio,
     slots: {
       N: isGroup ? `la pandilla de ${joinNames(names)}` : names[0],
       o: gender,
       el: gender === 'a' ? 'ella' : 'él',
       lo: gender === 'a' ? 'la' : 'lo',
-      oficio: midSentence(params.oficio),
+      // Con varios protagonistas el oficio suele ir en plural y rompería la concordancia.
+      oficio: isGroup ? null : midSentence(params.oficio),
       gusto: midSentence(params.gusto),
       cualidad: midSentence(params.cualidad),
       lugar: midSentence(params.lugar),
       anecdota: midSentence(params.anecdota),
+      defensa: midSentence(params.defensa),
       figura: figure,
     },
   };
@@ -74,8 +86,14 @@ function newMemory(context, existingVerses = []) {
 
 function collectWarnings(codes, context, memory) {
   const messages = [...new Set(codes)].map((code) => WARNING_MESSAGES[code]).filter(Boolean);
+  if (context.slots.defensa && !memory.slotUses.has('defensa')) {
+    messages.push(`No se pudo incorporar con rima lo que hace frente a la Muerte («${context.slots.defensa}»). Añádelo a mano en el conflicto.`);
+  }
   if (memory.pendingElements.length) {
     messages.push(`No se pudo incorporar de forma natural: ${memory.pendingElements.join(', ')}. Añádelo a mano en el editor.`);
+  }
+  if (context.names.length > 1 && collapseSpaces(context.rawOficio || '')) {
+    messages.push('Con varios protagonistas no se usa el oficio, para evitar errores de concordancia (por ejemplo, «quiso ser maestras»). Puedes añadirlo a mano en el editor.');
   }
   const userData = normalizeForSearch([context.slots.N, context.slots.gusto, context.slots.cualidad, context.slots.oficio, context.slots.lugar, context.slots.anecdota].join(' '));
   const conflicts = context.avoid.filter((word) => userData.includes(word));
@@ -97,20 +115,23 @@ export function generate(params, seed = newSeed()) {
   const rng = createRng(seed);
   const ending = chooseEnding(params.ending, params.tone, rng);
   const figure = rng.pick(deathFiguresFor(params.tone));
-  const context = buildContext(params, { ending, figure });
+  const hook = chooseHook(params, rng);
+  const context = buildContext(params, { ending, figure, hook });
   const memory = newMemory(context);
   const lengths = Array.from({ length: params.stanzas }, () => params.verses);
   const codes = [];
   const stageList = stagesByStanza(lengths);
+  const threadByStanza = [];
   const stanzas = stageList.map((stages, i) => {
     const result = buildStanza({ stages, scheme: params.scheme, context, memory, rng, isFinalStanza: i === stageList.length - 1 });
     codes.push(...result.warnings);
+    threadByStanza.push(result.thread);
     return { verses: result.verses };
   });
   return {
     title: makeTitle(params, context, rng),
     stanzas,
-    engine: { seed, ending, figure, engineVersion: ENGINE_VERSION },
+    engine: { seed, ending, figure, hook, threadByStanza, closingThread: memory.slotUses.get('hiloFinal') || 0, engineVersion: ENGINE_VERSION },
     warnings: collectWarnings(codes, context, memory),
   };
 }
@@ -121,7 +142,7 @@ export function regenerateStanza(poem, index, seed = newSeed()) {
   if (!target) throw new AppError('La estrofa indicada no existe.');
   if (target.locked) throw new AppError('La estrofa está bloqueada. Desbloquéala para regenerarla.', { code: 'STANZA_LOCKED' });
   const rng = createRng(seed);
-  const context = buildContext(poem.params, { ending: poem.engine?.ending || 'F', figure: poem.engine?.figure || 'la Catrina' });
+  const context = buildContext(poem.params, { ending: poem.engine?.ending || 'F', figure: poem.engine?.figure || 'la Catrina', hook: poem.engine?.hook ?? null });
   const others = poem.stanzas.filter((_, i) => i !== index).flatMap((s) => s.verses);
   const memory = newMemory(context, others);
   const lengths = poem.stanzas.map((s) => Math.max(1, s.verses.length));
@@ -139,7 +160,8 @@ export function generateVariant(poem, seed = newSeed()) {
   const hasLocked = poem.stanzas.some((s) => s.locked);
   const ending = hasLocked || !poem.engine ? poem.engine?.ending || chooseEnding(poem.params.ending, poem.params.tone, rng) : chooseEnding(poem.params.ending, poem.params.tone, rng);
   const figure = hasLocked && poem.engine?.figure ? poem.engine.figure : rng.pick(deathFiguresFor(poem.params.tone));
-  const context = buildContext(poem.params, { ending, figure });
+  const hook = hasLocked && poem.engine ? poem.engine.hook ?? null : chooseHook(poem.params, rng);
+  const context = buildContext(poem.params, { ending, figure, hook });
   const lockedVerses = poem.stanzas.filter((s) => s.locked).flatMap((s) => s.verses);
   const memory = newMemory(context, lockedVerses);
   const lengths = poem.stanzas.map((s) => Math.max(1, s.verses.length));
@@ -151,5 +173,5 @@ export function generateVariant(poem, seed = newSeed()) {
     codes.push(...result.warnings);
     return { ...structuredClone(stanza), verses: result.verses };
   });
-  return { stanzas, engine: { seed, ending, figure, engineVersion: ENGINE_VERSION }, warnings: collectWarnings(codes, context, memory) };
+  return { stanzas, engine: { seed, ending, figure, hook, engineVersion: ENGINE_VERSION }, warnings: collectWarnings(codes, context, memory) };
 }

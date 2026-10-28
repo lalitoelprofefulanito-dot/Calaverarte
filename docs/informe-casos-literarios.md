@@ -4,212 +4,213 @@ Generado automáticamente por `tests/integration/literary-cases.test.js` (semill
 
 ## Resultados medibles
 
-- Parejas de versos que debían rimar: 245; riman según el motor de rimas: 242 (98.8 %).
-- Datos personales proporcionados: 54; reconocibles en el poema: 49 (90.7 %).
+- Parejas de versos que debían rimar: 245; riman según el motor de rimas: 239 (97.6 %).
+- Datos personales proporcionados: 57; reconocibles en el poema: 55 (96.5 %).
+- Hilo conductor: 22 casos con gancho; en 22 el gancho reaparece en el conflicto, la resolución o el remate.
 - Versos vacíos o repetidos: 0 (la prueba falla si aparece alguno).
 - Términos no aptos en casos infantiles o escolares: 0. Palabras pedidas para evitar que aparecieron: 0.
 
-| # | Protagonista | Tono | Extensión | Rima | Rimas OK | Datos usados | Desenlace | Avisos | El evaluador pide revisar |
-|---|---|---|---|---|---|---|---|---|---|
-| 1 | Doña Lupe | tradicional | 4×4 | alternada | 8/8 | 4/4 | escapa | 0 | — |
-| 2 | Mateo | infantil | 3×4 | pareada | 6/6 | 2/4 (falta: gusto, lugar) | escapa | 0 | Características del protagonista |
-| 3 | Ana, Luis y Pepe | humoristico | 2×6 | abrazada | 6/6 | 0/0 | escapa | 0 | Ritmo (aproximado) |
-| 4 | el profe Eduardo | tierno | 4×4 | pareada | 8/8 | 4/4 | escapa | 0 | Ritmo (aproximado), Desenlace |
-| 5 | Don Chucho | satirico | 5×4 | abrazada | 10/10 | 3/3 | se lo lleva | 0 | — |
-| 6 | Valeria | fantastico | 3×4 | alternada | 6/6 | 2/2 | escapa | 0 | — |
-| 7 | el abuelo Ramón | narrativo | 6×4 | alternada | 12/12 | 1/2 (falta: oficio) | se lo lleva | 0 | Ritmo (aproximado), Características del protagonista |
-| 8 | Sofía | infantil | 2×4 | pareada | 4/4 | 0/0 | fiesta | 0 | — |
-| 9 | Panchito | infantil | 2×2 | pareada | 2/2 | 0/1 (falta: gusto) | fiesta | 0 | Características del protagonista |
-| 10 | la directora Toña | humoristico | 4×4 | alternada | 8/8 | 3/3 | escapa | 0 | Ritmo (aproximado), Desenlace |
-| 11 | Jorge | satirico | 5×4 | pareada | 10/10 | 2/2 | se lo lleva | 0 | — |
-| 12 | Lucía | fantastico | 4×6 | abrazada | 12/12 | 2/2 | fiesta | 0 | Ritmo (aproximado) |
-| 13 | Tío Beto | tradicional | 3×4 | alternada | 6/6 | 1/1 | se lo lleva | 0 | — |
-| 14 | Camila | tierno | 3×4 | pareada | 6/6 | 2/2 | fiesta | 0 | — |
-| 15 | Rodrigo | humoristico | 2×8 | alternada | 8/8 | 1/1 | se lo lleva | 0 | Ritmo (aproximado) |
-| 16 | María José | narrativo | 5×5 | pareada | 14/15 | 2/2 | se lo lleva | 1 | Rima |
-| 17 | el equipo de basquetbol | humoristico | 3×4 | libre | n/a | 0/0 | fiesta | 0 | Ritmo (aproximado) |
-| 18 | Don Polo | tradicional | 8×8 | alternada | 30/32 | 3/3 | se lo lleva | 1 | Rima, Ritmo (aproximado) |
-| 19 | Ximena | fantastico | 2×3 | abrazada | 2/2 | 1/1 | fiesta | 0 | Ritmo (aproximado) |
-| 20 | Kevin | infantil | 4×4 | alternada | 8/8 | 2/2 | escapa | 0 | Ritmo (aproximado) |
-| 21 | la maestra Ruth | tierno | 4×4 | abrazada | 8/8 | 2/2 | escapa | 0 | Ritmo (aproximado) |
-| 22 | Ñoño | humoristico | 3×4 | pareada | 6/6 | 1/1 | fiesta | 0 | — |
-| 23 | Martha y Julieta | narrativo | 3×4 | alternada | 6/6 | 0/1 (falta: oficio) | fiesta | 0 | Ritmo (aproximado), Características del protagonista |
-| 24 | El Güero | tradicional | 4×4 | pareada | 8/8 | 3/3 | se lo lleva | 0 | — |
-| 25 | Renata | satirico | 3×4 | alternada | 6/6 | 0/0 | se lo lleva | 0 | — |
-| 26 | Óscar | fantastico | 4×4 | pareada | 8/8 | 3/3 | escapa | 0 | Desenlace |
-| 27 | Abuela Chela | tierno | 5×4 | alternada | 10/10 | 1/1 | se lo lleva | 0 | Ritmo (aproximado) |
-| 28 | Iker | tradicional | 2×4 | libre | n/a | 0/0 | se lo lleva | 0 | — |
-| 29 | Fernanda | infantil | 3×4 | pareada | 6/6 | 2/2 | escapa | 0 | — |
-| 30 | Don Fernando | humoristico | 6×6 | abrazada | 18/18 | 2/2 | se lo lleva | 0 | Ritmo (aproximado) |
+| # | Protagonista | Tono | Extensión | Rima | Rimas OK | Datos usados | Gancho (¿vuelve al final?) | Desenlace | Avisos | El evaluador pide revisar |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Doña Lupe | tradicional | 4×4 | alternada | 8/8 | 5/5 | lugar (sí) | escapa | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 2 | Mateo | infantil | 3×4 | pareada | 6/6 | 3/4 (falta: lugar) | gusto (sí) | escapa | 0 | Versos octosílabos (8 ± 1), Características del protagonista |
+| 3 | Ana, Luis y Pepe | humoristico | 2×6 | abrazada | 6/6 | 0/0 | — | escapa | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 4 | el profe Eduardo | tierno | 4×4 | pareada | 8/8 | 5/5 | lugar (sí) | escapa | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 5 | Don Chucho | satirico | 5×4 | abrazada | 10/10 | 3/3 | oficio (sí) | se lo lleva | 0 | Versos octosílabos (8 ± 1) |
+| 6 | Valeria | fantastico | 3×4 | alternada | 6/6 | 2/2 | lugar (sí) | escapa | 0 | Versos octosílabos (8 ± 1) |
+| 7 | el abuelo Ramón | narrativo | 6×4 | alternada | 12/12 | 2/2 | oficio (sí) | se lo lleva | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 8 | Sofía | infantil | 2×4 | pareada | 4/4 | 0/0 | — | fiesta | 0 | Versos octosílabos (8 ± 1) |
+| 9 | Panchito | infantil | 2×2 | pareada | 2/2 | 1/1 | gusto (sí) | fiesta | 0 | Versos octosílabos (8 ± 1) |
+| 10 | la directora Toña | humoristico | 4×4 | alternada | 8/8 | 3/3 | oficio (sí) | escapa | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 11 | Jorge | satirico | 5×4 | pareada | 10/10 | 2/2 | oficio (sí) | se lo lleva | 0 | Ritmo (aproximado) |
+| 12 | Lucía | fantastico | 4×6 | abrazada | 12/12 | 2/2 | gusto (sí) | fiesta | 0 | Ritmo (aproximado) |
+| 13 | Tío Beto | tradicional | 3×4 | alternada | 6/6 | 1/1 | anecdota (sí) | se lo lleva | 0 | — |
+| 14 | Camila | tierno | 3×4 | pareada | 6/6 | 2/2 | gusto (sí) | fiesta | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 15 | Rodrigo | humoristico | 2×8 | alternada | 8/8 | 1/1 | — | se lo lleva | 0 | Versos octosílabos (8 ± 1), Palabras repetidas |
+| 16 | María José | narrativo | 5×5 | pareada | 13/15 | 2/2 | oficio (sí) | se lo lleva | 1 | Rima, Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 17 | el equipo de basquetbol | humoristico | 3×4 | libre | n/a | 0/0 | — | fiesta | 0 | Ritmo (aproximado) |
+| 18 | Don Polo | tradicional | 8×8 | alternada | 28/32 | 3/3 | gusto (sí) | se lo lleva | 1 | Rima, Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 19 | Ximena | fantastico | 2×3 | abrazada | 2/2 | 1/1 | gusto (sí) | fiesta | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1), Desenlace |
+| 20 | Kevin | infantil | 4×4 | alternada | 8/8 | 2/2 | anecdota (sí) | escapa | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 21 | la maestra Ruth | tierno | 4×4 | abrazada | 8/8 | 2/2 | oficio (sí) | escapa | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 22 | Ñoño | humoristico | 3×4 | pareada | 6/6 | 1/1 | — | fiesta | 0 | — |
+| 23 | Martha y Julieta | narrativo | 3×4 | alternada | 6/6 | 0/1 (falta: oficio) | — | fiesta | 1 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 24 | El Güero | tradicional | 4×4 | pareada | 8/8 | 3/3 | gusto (sí) | se lo lleva | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 25 | Renata | satirico | 3×4 | alternada | 6/6 | 0/0 | — | se lo lleva | 0 | — |
+| 26 | Óscar | fantastico | 4×4 | pareada | 8/8 | 4/4 | oficio (sí) | escapa | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
+| 27 | Abuela Chela | tierno | 5×4 | alternada | 10/10 | 1/1 | gusto (sí) | se lo lleva | 0 | Versos octosílabos (8 ± 1) |
+| 28 | Iker | tradicional | 2×4 | libre | n/a | 0/0 | — | se lo lleva | 0 | — |
+| 29 | Fernanda | infantil | 3×4 | pareada | 6/6 | 2/2 | lugar (sí) | escapa | 0 | Versos octosílabos (8 ± 1) |
+| 30 | Don Fernando | humoristico | 6×6 | abrazada | 18/18 | 2/2 | anecdota (sí) | se lo lleva | 0 | Ritmo (aproximado), Versos octosílabos (8 ± 1) |
 
 ## Poemas generados
 
-### 1. Aquí yace Doña Lupe
+### 1. Calaverita para Doña Lupe
 
-*Parámetros:* names: Doña Lupe; gender: a; oficio: cocinera; gusto: hacer tamales; cualidad: muy platicadora; lugar: el mercado; tone: tradicional; stanzas: 4; verses: 4; scheme: alternada
+*Parámetros:* names: Doña Lupe; gender: a; oficio: cocinera; gusto: hacer tamales; cualidad: muy platicadora; lugar: el mercado; defensa: le ofreció un tamal de rajas; tone: tradicional; stanzas: 4; verses: 4; scheme: alternada
 
-Doña Lupe era cocinera de primera  
-Hacer tamales era su pasión  
-Era muy platicadora a su manera  
-En el mercado era la sensación.  
+Doña Lupe era cocinera de vocación  
+Iba a hacer tamales diariamente  
+Era muy platicadora de corazón  
+Siempre ayudaba a la gente.  
 
-Decía siempre la verdad  
-Le encantaba platicar  
-La Pelona, desde la oscuridad,  
-La quería al panteón llevar.  
+Contaba siempre algún cuento  
+Y a todos les sonreía  
+Sopló un helado viento  
+Al mercado la Pelona llegó un día.  
 
-Le dijo: «Vente a la eternidad»  
-Quiso llevársela ese día  
-Doña Lupe dijo: «¡Qué calamidad!»  
-Y aún se ríe de la Parca fría.  
+Pero Doña Lupe le ofreció un tamal de rajas sin dudar  
+Le dijo: «Se acabó tu vida»  
+Por el mercado la quiso atrapar  
+Y la Pelona se fue vencida.  
 
-Y vive con felicidad  
-Y salió bien librada  
-Y huyó por toda la ciudad  
-Y sigue sin ser atrapada.  
+Y se escapó al primer intento  
+Y se salvó del panteón  
+Y sigue fuerte como el viento  
+Y aquí se acaba la lección.  
 
-### 2. Una calaverita para Mateo
+### 2. Mateo y la Catrina
 
 *Parámetros:* names: Mateo; gusto: jugar futbol; cualidad: muy distraído; lugar: la escuela; tone: infantil; stanzas: 3; verses: 4; scheme: pareada; mustInclude: un balón; audience: educativo; level: primaria-baja
 
-Mateo saludaba a toda la gente  
-Con un balón siempre presente  
-Era muy distraído a su manera  
-Siempre llegaba a la carrera.  
+Mateo, toda una dulzura,  
+Era muy distraído, cosa segura  
+Sabía jugar futbol con habilidad  
+Cargaba un balón por la ciudad.  
 
-Sintió un escalofrío de repente  
-La Catrina llegó sonriente  
-Le dijo: «Hoy no hay mañana»  
-Mateo saltó por la ventana.  
+Sonó un golpe en el portón  
+La Catrina entró sin invitación  
+Mateo se quiso escapar  
+Lo puso a jugar futbol sin parar.  
 
-Y huyó por toda la ciudad  
-Y vive en libertad  
-Y aún se ríe de la Parca fría  
-Y a la Muerte desafía.  
+Y se escondió en una palangana  
+Y quizás la Muerte vuelva mañana  
+Y la Muerte quedó vencida  
+Y aquí termina la partida.  
 
-### 3. La pandilla de Ana, Luis y Pepe y la Pelona
+### 3. El día que la pandilla de Ana, Luis y Pepe engañó a la Calaca
 
 *Parámetros:* names: Ana, Luis y Pepe; tone: humoristico; stanzas: 2; verses: 6; scheme: abrazada; preferDialogue: true
 
-La pandilla de Ana, Luis y Pepe, famosa en la ciudad,  
+La pandilla de Ana, Luis y Pepe se levantó una mañana  
 Siempre andaba de travesura  
 La pandilla, toda una dulzura,  
-Decía siempre la verdad  
-La Dientona sonó la campana  
-Le dijo: «Hoy no hay mañana»  
+Cantaba por la ventana  
+La Dientona llegó enseguida  
+Le dijo: «Se acabó tu vida»  
 
-La quería al panteón llevar  
-Le dijo: «Vamos a la sepultura»  
-Y sigue en pie con frescura  
-La Dientona se echó a llorar  
-Y aún se ríe de la Parca fría  
-Y a la Muerte desafía.  
+Pero ella no se rendía  
+La Dientona la miró de frente  
+Y sigue sana y valiente  
+Y a la Muerte desafía  
+Y vive en libertad  
+Y huyó por toda la ciudad.  
 
 ### 4. El profe Eduardo y la Catrina
 
-*Parámetros:* names: el profe Eduardo; oficio: bibliotecario; gusto: leer cuentos; cualidad: muy paciente; lugar: la biblioteca; tone: tierno; stanzas: 4; verses: 4; scheme: pareada
+*Parámetros:* names: el profe Eduardo; oficio: bibliotecario; gusto: leer cuentos; cualidad: muy paciente; lugar: la biblioteca; defensa: le prestó un libro de cuentos; tone: tierno; stanzas: 4; verses: 4; scheme: pareada
 
 El profe Eduardo era bibliotecario de vocación  
-En la biblioteca era la sensación  
-Leer cuentos era su vida entera  
-Era muy paciente a su manera.  
+Era muy paciente de corazón  
+El profe Eduardo en la biblioteca vivía  
+Leer cuentos bien que sabía.  
 
-El profe Eduardo, de los mejores,  
-Llenaba la casa de colores  
-Un viento frío sopló  
-Y de pronto la Catrina llegó.  
+Repartía abrazos un montón  
+Leer cuentos era su pasión  
+La Catrina llegó sonriente  
+Entonces el profe Eduardo le prestó un libro de cuentos de repente.  
 
-Quiso llevárselo ese día  
-Pero él no se rendía  
-Le dijo: «Vente a la eternidad»  
-Y huyó por toda la ciudad.  
+En la biblioteca buscó una salida  
+Le dijo: «Se acabó tu vida»  
+La Catrina lo persiguió  
+Y en la biblioteca se le escondió.  
 
-Y la Muerte se cansó  
-Y la Catrina se rindió  
-Y quizás la Muerte vuelva mañana  
-Y la Catrina volverá otra semana.  
+Y sigue en pie con frescura  
+¡Vaya aventura!  
+Y sigue fuerte como el viento  
+Y colorín, se acabó el cuento.  
 
-### 5. Don Chucho, en el panteón
+### 5. Lo que dejó Don Chucho
 
 *Parámetros:* names: Don Chucho; oficio: taxista; gusto: tocar el claxon; anecdota: se pasó un alto; tone: satirico; stanzas: 5; verses: 4; scheme: abrazada
 
-Don Chucho gozaba de la vida  
-Tocar el claxon era su vida entera  
 Don Chucho era taxista de primera  
-Se pasó un alto a la salida.  
+Se pasó un alto de repente  
+Don Chucho, siempre tan sonriente,  
+Tocar el claxon era su vida entera.  
 
-Decía siempre la verdad  
-Y a todos les sonreía  
+Le encantaban los colores  
 Mucho prometía y nada cumplía  
-La Huesuda llegó con seriedad.  
+Y a todos les sonreía  
+La Huesuda llegó entre flores.  
 
-Le dijo: «Vente a la eternidad»  
+Le dijo: «Vamos a la sepultura»  
 La Huesuda lo persiguió  
-Un viento frío sopló  
-Don Chucho dijo: «¡Qué calamidad!»  
+Don Chucho se escondió  
+Le explicó su trabajo con cordura.  
 
-Le dijo: «¡Vámonos, adelante!»  
+Le dijo: «Se acabó tu vida»  
 Lo quería al panteón llevar  
-Y en el panteón ha de estar  
-Y se lo llevó al instante.  
+Y no lo pudo salvar  
+Y fue su última salida.  
 
-Y su tumba es muy elegante  
+Y al panteón fue llevado  
 Y allá lo ven todavía  
 Y en su tumba hay alegría  
-Y en su ofrenda hay pan abundante.  
+Y por siempre es recordado.  
 
-### 6. Valeria y la Catrina encantada
+### 6. Valeria contra la Muerte
 
 *Parámetros:* names: Valeria; gender: a; gusto: bailar cumbia; lugar: la fiesta; tone: fantastico; stanzas: 3; verses: 4; scheme: alternada; ending: E
 
-Valeria, siempre de buena gana,  
-En la fiesta era la sensación  
-Quería bailar cumbia cada mañana  
-Bailar cumbia era su pasión.  
+Valeria en la fiesta solía estar  
+Siempre ayudaba a la gente  
+Le encantaba bailar cumbia sin parar  
+Valeria era muy valiente.  
 
-La Muerte a la puerta tocó  
-La jaló del pantalón  
-Valeria se escondió  
-«¡Dame una oportunidad, por compasión!»  
+Llegó una noche oscura  
+La Muerte llegó a la carrera  
+En la fiesta se escondió con premura  
+Le dijo: «Ven, que la tumba te espera»  
 
 Y se escapó al primer intento  
-Y se escondió en una palangana  
+Y en la fiesta anda todavía  
 Y sigue fuerte como el viento  
-Y la Muerte volverá otra semana.  
+Y a la Muerte desafía.  
 
-### 7. La historia de el abuelo Ramón
+### 7. El abuelo Ramón y la Muerte
 
 *Parámetros:* names: el abuelo Ramón; oficio: carpintero; gusto: contar chistes; tone: narrativo; stanzas: 6; verses: 4; scheme: alternada
 
-El abuelo Ramón un día despertó  
-Decía siempre la verdad  
-De contar chistes nunca se cansó  
-El abuelo Ramón era pura bondad.  
+El abuelo Ramón no paraba de trabajar  
+Nunca un día faltó  
+Le encantaba contar chistes sin parar  
+El abuelo Ramón un día despertó.  
 
 Andaba siempre apurado  
-Le encantaba platicar  
+Y a todos les sonreía  
 Contar chistes lo traía encantado  
-El abuelo Ramón no paraba de trabajar.  
+Era el abuelo Ramón pura alegría.  
 
-La Muerte llegó enseguida  
-Lo jaló del pantalón  
-Le dijo: «Se acabó tu vida»  
-Quiso llevárselo al panteón.  
-
+En su turno de carpintero lo sorprendió  
 Lo quería al panteón llevar  
-La Muerte lo miró de frente  
-«¡Te vengo a llevar!», le dijo al llegar  
-Sintió un escalofrío de repente.  
+La Muerte a la puerta tocó  
+«¡Te vengo a llevar!», le dijo al llegar.  
 
-Y ahora es otra calavera  
-Y se fue a la eternidad  
-Y una lápida fue su cabecera  
-Y descansa en paz, de verdad.  
+«Soy carpintero y trabajo todavía»  
+Le dijo: «Vente a la eternidad»  
+Quiso llevárselo ese día  
+Le enseñó a ser carpintero con habilidad.  
 
-Y le pusieron flores con ternura  
-Y fue su última salida  
+Y se fue con el viento  
+Y al panteón se lo llevó  
+Y en su tumba hay un monumento  
+Y en el panteón se quedó.  
+
 Y lo metió en la sepultura  
-Y aquí termina la partida.  
+Y descansa en paz, de verdad  
+Y ahora duerme con ternura  
+Y se fue a la eternidad.  
 
 ### 8. La aventura de Sofía
 
@@ -220,199 +221,199 @@ Tenía un humor muy brillante
 Andaba siempre apurada  
 La Catrina la tenía apuntada.  
 
-Sofía gritó desesperada  
-La Catrina la encontró descuidada  
-Y se pusieron a bailar  
-¡Y no dejaron de festejar!  
+Sofía se quiso escapar  
+La quería al panteón llevar  
+Y bailaron con tambores  
+¡Y vivan los buenos sabores!  
 
 ### 9. Panchito y la Catrina
 
 *Parámetros:* names: Panchito; gusto: comer dulces; tone: infantil; stanzas: 2; verses: 2; scheme: pareada; audience: educativo; level: preescolar
 
-Panchito saludaba a toda la gente  
-La Calaquita llegó sonriente.  
+Era Panchito pura alegría  
+La Calaquita vino a comer dulces ese día.  
 
-Bailaron hasta otro día  
-¡Quién lo diría, quién lo diría!  
+Y a comer dulces quedaron cada semana  
+¡Y la fiesta sigue mañana!  
 
-### 10. ¡Ay, la directora Toña!
+### 10. La directora Toña y la Pelona
 
 *Parámetros:* names: la directora Toña; gender: a; oficio: directora; cualidad: muy organizada; lugar: la dirección; tone: humoristico; stanzas: 4; verses: 4; scheme: alternada
 
-La directora Toña en la dirección trabajó  
-Siempre llegaba a la carrera  
-Era muy organizada, y así creció  
-La directora Toña era directora de primera.  
+La directora Toña era directora de vocación  
+Era muy organizada, cosa segura  
+En la dirección era la sensación  
+Siempre andaba de travesura.  
 
-Nunca se perdía una comida  
-Decía siempre la verdad  
+Comía tamales sin medida  
+Y a todos les sonreía  
 La Dientona llegó enseguida  
+Quiso llevársela ese día.  
+
+Le dio una lección de directora con pasión  
 Le dijo: «Vente a la eternidad»  
+La jaló del pantalón  
+Y vive en libertad.  
 
-«¡Te vengo a llevar!», le dijo al llegar  
-La directora Toña perdió la compostura  
-La quería al panteón llevar  
-Y sigue en pie con frescura.  
-
-Y sigue sin ser atrapada  
-Y se escondió en una palangana  
-Y salió bien librada  
-Y quizás la Muerte vuelva mañana.  
+Y sigue en pie con frescura  
+Y se escapó al primer intento  
+¡Vaya aventura!  
+Y sigue fuerte como el viento.  
 
 ### 11. Lo que dejó Jorge
 
 *Parámetros:* names: Jorge; oficio: doctor; gusto: recetar jarabes; tone: satirico; stanzas: 5; verses: 4; scheme: pareada; audience: educativo; level: secundaria
 
-Jorge era doctor de vocación  
-Recetar jarabes era su pasión  
-Jorge, lleno de talento,  
-Contaba siempre algún cuento.  
+Jorge, doctor de día,  
+Recetar jarabes era su alegría  
+Jorge vivía muy confiado  
+Andaba siempre apurado.  
 
-Mucho prometía y nada cumplía  
-Y a todos les sonreía  
-Nunca un día faltó  
-La Dientona a la puerta tocó.  
+Le encantaba platicar  
+De la chamba se quería escapar  
+Cantaba por la ventana  
+La Dientona sonó la campana.  
 
-Le dijo: «¡Vámonos, adelante!»  
-Jorge le dijo: «¡Espera un instante!»  
-La Dientona lo tenía apuntado  
-Jorge gritó desesperado.  
+Le dijo: «Ya es el momento»  
+Jorge perdió el aliento  
+Le dio una lección de doctor con pasión  
+Lo jaló del pantalón.  
 
-Quiso llevárselo al panteón  
-Lo jaló del pantalón  
-Y al panteón fue llevado  
-Y quedó bien sepultado.  
+Pero él no se rendía  
+Quiso llevárselo ese día  
+Y no lo pudo salvar  
+Y en el panteón ha de estar.  
 
-¡Que en paz descanse eternamente!  
-Y en la ofrenda está presente  
-Y se fue con el viento  
-Y en su tumba hay un monumento.  
+Y al panteón se lo traía  
+Y allá lo ven todavía  
+Y fue su última salida  
+¡Y así se acaba la vida!  
 
 ### 12. Lucía y la Catrina encantada
 
 *Parámetros:* names: Lucía; gender: a; gusto: pintar paisajes; cualidad: muy soñadora; tone: fantastico; stanzas: 4; verses: 6; scheme: abrazada
 
-Lucía, siempre tan sonriente,  
-Era muy soñadora, cosa segura  
-Siempre andaba de travesura  
-Iba a pintar paisajes diariamente  
+Lucía era pura bondad  
+Quería pintar paisajes a cada momento  
+Lucía, llena de talento,  
+Era muy soñadora, de verdad  
+Andaba siempre apurada  
+Lucía vivía muy confiada.  
+
+Le encantaban los colores  
 Le encantaba platicar  
-Era muy soñadora, no se puede negar.  
+Algo extraño empezó a pasar  
+Se oyeron unos tambores  
+La Calaca tocó el portón  
+La jaló del pantalón.  
 
-Nunca un día faltó  
-Hablaba con la luna cada día  
-Pero ella no se rendía  
-La Calaca a la puerta tocó  
-Lucía sacó una armadura  
-Le dijo: «Vamos a la sepultura»  
-
+La retó a pintar paisajes enseguida  
+La Calaca la persiguió  
+Lucía se escondió  
 Le dijo: «Se acabó tu vida»  
-Lucía saltó por la ventana  
-Le dijo: «Hoy no hay mañana»  
-La Calaca, siempre decidida,  
-Bailaron al son de una canción  
-Y armaron una gran función.  
+Y bailó muy animada  
+Y salió muy bien parada.  
 
+Bailaron hasta otro día  
 Y armaron un baile brillante  
-Y se pusieron a bailar  
-¡Y no paraban de cantar!  
 ¡Qué fiesta tan emocionante!  
+¡Y qué noche de alegría!  
 ¡Y hubo tamales y comida!  
 ¡Y la fiesta sigue encendida!  
 
-### 13. Calaverita para Tío Beto
+### 13. La Muerte y Tío Beto
 
 *Parámetros:* names: Tío Beto; anecdota: se comió el pan de la ofrenda; tone: tradicional; stanzas: 3; verses: 4; scheme: alternada; ending: L
 
-Tío Beto feliz se la pasaba cada día  
-Se comió el pan de la ofrenda en un instante  
-Era Tío Beto pura alegría  
-Tenía un humor muy brillante.  
+Tío Beto era muy valiente  
+Nunca un día faltó  
+Se comió el pan de la ofrenda de repente  
+Tío Beto un día despertó.  
 
-Se oyó un ruido en la oscuridad  
-La Calaca llegó entre flores  
-Le dijo: «Vente a la eternidad»  
-Tío Beto pidió: «¡Por favor, señores!»  
+Llegó una noche oscura  
+La Calaca tocó el portón  
+Le reclamó esa travesura  
+Lo jaló del pantalón.  
 
-Y se lo llevó sonriente  
 Y lo metió en la sepultura  
-Y lo recuerda toda la gente  
-Y ahora duerme con ternura.  
+Y se fue esa misma mañana  
+Y ahora duerme con ternura  
+Y le rezan cada semana.  
 
 ### 14. Un recuerdo para Camila
 
 *Parámetros:* names: Camila; gender: a; gusto: cantar rancheras; lugar: el patio; tone: tierno; stanzas: 3; verses: 4; scheme: pareada; ending: F
 
-Camila en el patio vivía  
-Era Camila pura alegría  
-Cantar rancheras era su pasión  
-Repartía abrazos un montón.  
+Camila era pura bondad  
+Sabía cantar rancheras con habilidad  
+Le encantaba platicar  
+Camila en el patio solía estar.  
 
-La Catrina llegó como el viento  
-Le dijo: «Ya es el momento»  
-Quiso llevársela al panteón  
-La jaló del pantalón.  
+La Catrina tocó el portón  
+La jaló del pantalón  
+Le ofreció enseñarle a cantar rancheras ese día  
+Pero ella no se rendía.  
 
-¡Qué noche de locura!  
-Y bailaron con soltura  
+Y la Catrina se reía  
+Bailaron hasta otro día  
 ¡Y hubo tamales y comida!  
-¡Y la fiesta sigue encendida!  
+Y aquí termina la partida.  
 
-### 15. Rodrigo y la Pelona
+### 15. ¡Ay, Rodrigo!
 
 *Parámetros:* names: Rodrigo; cualidad: muy presumido; tone: humoristico; stanzas: 2; verses: 8; scheme: alternada
 
-Rodrigo feliz se la pasaba cada día  
-Nunca se perdía una comida  
-Era muy presumido y se reía  
-Comía tamales sin medida  
+Rodrigo vivía muy confiado  
+Era muy presumido, y con talento  
+Siempre andaba despeinado  
+Contaba siempre algún cuento  
 Siempre llegaba a la carrera  
-Era muy presumido de corazón  
-La Flaca, alegre calavera,  
-Lo jaló del pantalón.  
+Nunca un día faltó  
+Se oyó un grito allá afuera  
+Y de pronto la Flaca llegó.  
 
-Pero él no se rendía  
 Le dijo: «Ya es el momento»  
-«¡Hoy no!», Rodrigo le decía  
-Y se fue con el viento  
-Y una lápida fue su cabecera  
-Y lo metió en la sepultura  
-Y en su tumba crece una enredadera  
-Y le pusieron flores con ternura.  
+La Flaca lo miró de frente  
+Rodrigo perdió el aliento  
+Y se lo llevó sonriente  
+Y al panteón fue llevado  
+Hicieron una gran despedida  
+Y por siempre es recordado  
+Y fue su última salida.  
 
-### 16. Calaverita de María José
+### 16. La historia de María José
 
 *Parámetros:* names: María José; gender: a; oficio: enfermera; lugar: el hospital; tone: narrativo; stanzas: 5; verses: 5; scheme: pareada
 
-Era María José pura alegría  
-María José, enfermera de día,  
-Andaba siempre apurada  
-María José gozaba de la vida  
-Cantaba por la ventana.  
+María José en el hospital vivía  
+Y a todos les sonreía  
+Contaba siempre algún cuento  
+Cantaba por la ventana  
+María José era enfermera de primera.  
 
-En el hospital era la sensación  
-María José, de gran corazón,  
-Le encantaba platicar  
-María José no paraba de trabajar  
-La Calaca llegó sin avisar.  
+Siempre ayudaba a la gente  
+María José era muy valiente  
+Decía siempre la verdad  
+María José era pura bondad  
+La Calaca llegó con seriedad.  
 
-Le dijo: «Vente a la eternidad»  
-La Calaca, desde la oscuridad,  
+La jaló del pantalón  
+Quiso llevársela al panteón  
+Pero ella no se rendía  
+«Soy enfermera y trabajo todavía»  
+Quiso llevársela ese día.  
+
 La quería al panteón llevar  
 «¡Te vengo a llevar!», le dijo al llegar  
-María José se quiso escapar.  
+Y quedó bien sepultada  
+Y por siempre es recordada  
+Y al panteón fue llevada.  
 
-Le dijo: «Ya es el momento»  
-Sopló un helado viento  
 Y se la llevó al instante  
 Y su tumba es muy elegante  
-Y en su ofrenda hay pan abundante.  
-
-Y al panteón fue llevada  
-Y por siempre es recordada  
-Y le llevan pan a su altar  
 Y en el panteón ha de estar  
-Y aquí la vamos a dejar.  
+Y le llevan pan a su altar  
+Y no la pudo salvar.  
 
 > Avisos: En alguna estrofa no hubo una rima natural con los datos dados; esos versos quedaron sin rimar en lugar de forzar palabras.
 
@@ -420,157 +421,157 @@ Y aquí la vamos a dejar.
 
 *Parámetros:* names: el equipo de basquetbol; tone: humoristico; stanzas: 3; verses: 4; scheme: libre
 
-El equipo de basquetbol, de gran corazón,  
+El equipo de basquetbol feliz se la pasaba cada día  
 Decía siempre la verdad  
 Cantaba por la ventana  
-Le encantaban los colores.  
+Siempre andaba despeinado.  
 
 Llegó la Flaca al instante  
-El equipo de basquetbol perdió la compostura  
-La Flaca lo tenía apuntado  
-Quiso llevárselo ese día.  
+Le dijo: «Vamos a la sepultura»  
+Lo jaló del pantalón  
+Pero él no se rendía.  
 
 Y se armó un gran evento  
-Bailaron al son de una canción  
-Y quedaron de verse otra semana  
-¡Quién lo diría, quién lo diría!  
+¡Qué fiesta tan emocionante!  
+Y bailaron en la pradera  
+Y el baile nunca acabó.  
 
-### 18. La Muerte y Don Polo
+### 18. Calaverita para Don Polo
 
 *Parámetros:* names: Don Polo; oficio: panadero; gusto: hornear conchas; lugar: la panadería; tone: tradicional; stanzas: 8; verses: 8; scheme: alternada
 
-Don Polo en la panadería trabajó  
-Decía siempre la verdad  
-De hornear conchas nunca se cansó  
-Don Polo, famoso en la ciudad,  
-Hornear conchas le alegraba la vida  
-Y a todos les sonreía  
 Don Polo amaba la comida  
+En la panadería era la sensación  
+Hornear conchas le alegraba la vida  
+Don Polo era panadero de vocación  
+Nunca un día faltó  
+Y a todos les sonreía  
+Don Polo un día despertó  
 Era Don Polo pura alegría.  
 
-Don Polo era panadero de vocación  
-Le encantaban los colores  
-En la panadería era la sensación  
-Don Polo, de los mejores,  
-Tenía un humor muy brillante  
-Cantaba por la ventana  
-Don Polo, siempre tan elegante,  
-Nunca un día faltó.  
-
+Andaba siempre apurado  
 Siempre andaba de travesura  
-Contaba siempre algún cuento  
-Don Polo, toda una dulzura,  
-Le encantaba platicar  
+Don Polo vivía muy confiado  
+Cantaba por la ventana  
+Decía siempre la verdad  
+Le encantaban los colores  
+Don Polo era pura bondad  
+Le encantaba platicar.  
+
 Siempre ayudaba a la gente  
-Don Polo, de gran corazón,  
-Sintió un escalofrío de repente  
-Llegó la Muerte del panteón.  
+Contaba siempre algún cuento  
+Don Polo era muy valiente  
+Tenía un humor muy brillante  
+Don Polo amaba las flores  
+Siempre llegaba a la carrera  
+Se oyeron unos tambores  
+La Muerte a la puerta tocó.  
 
-La Muerte, con gran finura,  
-Pero él no se rendía  
-Le dijo: «Vamos a la sepultura»  
 Quiso llevárselo ese día  
-Le dijo: «Ya es el momento»  
-Lo jaló del pantalón  
-Don Polo perdió el aliento  
-«¡Dame una oportunidad, por compasión!»  
-
-Lo quería al panteón llevar  
-Don Polo pidió una explicación  
-«¡Te vengo a llevar!», le dijo al llegar  
-Quiso llevárselo al panteón  
-Don Polo perdió la compostura  
 La Muerte lo persiguió  
-Llegó una noche oscura  
-Don Polo se escondió.  
+Pero él no se rendía  
+Don Polo se escondió  
+Le dijo: «Ya es el momento»  
+Quiso llevárselo al panteón  
+Don Polo perdió el aliento  
+Lo jaló del pantalón.  
 
-La Muerte, flaca y fría,  
-Sonó un golpe en el portón  
-«¡Hoy no!», Don Polo le decía  
+Le enseñó a hornear conchas pacientemente  
+Le dijo: «Hoy no hay mañana»  
+La Muerte lo miró de frente  
+Don Polo saltó por la ventana  
+A hornear conchas lo invitó con dulzura  
+Don Polo se quiso escapar  
+Le dijo: «Vamos a la sepultura»  
+Lo quería al panteón llevar.  
+
+Don Polo buscó una salida  
+«¡Te vengo a llevar!», le dijo al llegar  
+Le dijo: «Se acabó tu vida»  
+Y no lo pudo salvar  
+Y su historia terminó  
+Y allá lo ven todavía  
+Y al panteón se lo llevó  
+Y en su tumba hay alegría.  
+
+Y lo metió en la sepultura  
 Y se lo llevó en un cajón  
-Y una lápida fue su cabecera  
+Y ahora duerme con ternura  
+Y le rezan con devoción  
+Y se lo llevó sonriente  
 Y se fue a la eternidad  
-Y en su tumba crece una enredadera  
+Y en la ofrenda está presente  
 Y descansa en paz, de verdad.  
 
-Y le pusieron flores con ternura  
-Y allá lo ven todavía  
-Y lo metió en la sepultura  
-Y al panteón se lo traía  
-Y en la ofrenda está presente  
+Y en su tumba hay un monumento  
+¡Y así se acaba la vida!  
+Y se fue con el viento  
 Hicieron una gran despedida  
-¡Que en paz descanse eternamente!  
-Y fue su última salida.  
-
-Y lo recuerda toda la gente  
-Y le llevan pan a su altar  
-Y se lo llevó sonriente  
-Y en el panteón ha de estar  
-Y quedó bien sepultado  
+Y su tumba es muy elegante  
+Y ahora es otra calavera  
+Y en su ofrenda hay pan abundante  
 ¡Quién lo creyera!  
-Y por siempre es recordado  
-Y ahora es otra calavera.  
 
 > Avisos: En alguna estrofa no hubo una rima natural con los datos dados; esos versos quedaron sin rimar en lugar de forzar palabras.
 
-### 19. Ximena contra la Muerte
+### 19. Ximena y la Catrina encantada
 
 *Parámetros:* names: Ximena; gender: a; gusto: jugar ajedrez; tone: fantastico; stanzas: 2; verses: 3; scheme: abrazada
 
-Ximena vivía muy confiada  
-Jugar ajedrez era lo más importante  
-La Calaca la encontró descuidada.  
+Era Ximena pura alegría  
+Le encantaban los colores  
+La Calaca vino a jugar ajedrez ese día.  
 
-Le dijo: «Ven, que la tumba te espera»  
-Y se armó un gran evento  
-¡Quién lo creyera!  
+La puso a jugar ajedrez sin parar  
+¡Y hubo tamales y comida!  
+¡Y no paraban de cantar!  
 
-### 20. Una calaverita para Kevin
+### 20. La aventura de Kevin
 
 *Parámetros:* names: Kevin; gusto: jugar videojuegos; anecdota: olvidó la tarea; tone: infantil; stanzas: 4; verses: 4; scheme: alternada; audience: educativo; level: primaria-alta
 
-Kevin feliz se la pasaba cada día  
-Olvidó la tarea y quedó apenado  
-Jugar videojuegos era su alegría  
-Andaba siempre apurado.  
+Kevin era muy valiente  
+Olvidó la tarea y nadie lo olvidó  
+Iba a jugar videojuegos diariamente  
+Nunca un día faltó.  
 
-Le encantaba platicar  
-Decía siempre la verdad  
-La Calaquita llegó sin avisar  
-Kevin dijo: «¡Qué calamidad!»  
+Le encantaban los colores  
+Siempre ayudaba a la gente  
+Se oyeron unos tambores  
+La Calaquita llegó sonriente.  
 
-Quiso llevárselo al panteón  
-Pero él no se rendía  
-«¡Dame una oportunidad, por compasión!»  
-Y a la Muerte desafía.  
+La Calaquita por eso se enojó  
+Le dijo: «Se acabó tu vida»  
+Kevin gritó: «¡Yo no!»  
+Y la Muerte quedó vencida.  
 
-La Calaquita cambió de opinión  
-Y se escondió en una palangana  
-Y se salvó del panteón  
-Y quizás la Muerte vuelva mañana.  
+Y nunca más lo haría  
+Y huyó por toda la ciudad  
+Y a la Muerte desafía  
+Y vive con felicidad.  
 
 ### 21. Con cariño, para la maestra Ruth
 
 *Parámetros:* names: la maestra Ruth; gender: a; oficio: maestra; gusto: revisar cuadernos; tone: tierno; stanzas: 4; verses: 4; scheme: abrazada; audience: educativo; level: primaria-alta
 
-La maestra Ruth, maestra sin par,  
-Cantaba por la ventana  
-La maestra Ruth, siempre de buena gana,  
-Le encantaba revisar cuadernos sin parar.  
-
-Siempre andaba de travesura  
+La maestra Ruth era maestra de vocación  
 Le encantaba platicar  
-La quería al panteón llevar  
-La Calaca salió de la sepultura.  
+La maestra Ruth no paraba de trabajar  
+Revisar cuadernos era su pasión.  
 
-Le dijo: «Ven, que la tumba te espera»  
-Quiso llevársela al panteón  
-«¡Dame una oportunidad, por compasión!»  
-¡Quién lo creyera!  
+Nunca un día faltó  
+Repartía abrazos un montón  
+La jaló del pantalón  
+La Calaca a la puerta tocó.  
+
+Le explicó su trabajo con cordura  
+Le dijo: «Ya es el momento»  
+La maestra Ruth perdió el aliento  
+Y sigue en pie con frescura.  
 
 Y huyó por toda la ciudad  
-Y se escondió en una palangana  
-Y quizás la Muerte vuelva mañana  
+La Calaca cambió de opinión  
+Y se salvó del panteón  
 Y vive en libertad.  
 
 ### 22. ¡Ay, Ñoño!
@@ -582,15 +583,15 @@ Era muy glotón, cosa segura
 Andaba siempre apurado  
 Siempre andaba despeinado.  
 
-La Flaca llegó enseguida  
+Un viento frío sopló  
+La Flaca a la puerta tocó  
 Le dijo: «Se acabó tu vida»  
-La Flaca lo persiguió  
-Ñoño gritó: «¡Yo no!»  
+Ñoño buscó una salida.  
 
-Y bailó muy animado  
-¡Y allá sigue de invitado!  
-Y hubo pan de muerto y canción  
-¡Y qué buena celebración!  
+¡Y qué noche de alegría!  
+Y la Flaca se reía  
+¡Y que siga la fiesta entera!  
+Y bailaron en la pradera.  
 
 ### 23. La historia de la pandilla de Martha y Julieta
 
@@ -601,111 +602,113 @@ Siempre ayudaba a la gente
 Andaba siempre apurada  
 La pandilla era muy valiente.  
 
-Llegó la Catrina en ese momento  
-La Catrina la miró de frente  
-La pandilla perdió el aliento  
-Sintió un escalofrío de repente.  
+Se oyeron unos tambores  
+Pero ella no se rendía  
+La Catrina llegó entre flores  
+Quiso llevársela ese día.  
 
-Y bailaron con un elefante  
-¡Y allá sigue de invitada!  
-¡Qué fiesta tan emocionante!  
-Y salió muy bien parada.  
+Y se armó un gran evento  
+¡Y la fiesta sigue mañana!  
+Y bailaron al compás del viento  
+Y quedaron de verse otra semana.  
+
+> Avisos: Con varios protagonistas no se usa el oficio, para evitar errores de concordancia (por ejemplo, «quiso ser maestras»). Puedes añadirlo a mano en el editor.
 
 ### 24. Calaverita para El Güero
 
 *Parámetros:* names: El Güero; gusto: vender elotes; lugar: la esquina; tone: tradicional; stanzas: 4; verses: 4; scheme: pareada; mustInclude: una canasta
 
-Era El Güero pura alegría  
-El Güero en la esquina vivía  
-Con una canasta siempre presente  
-Iba a vender elotes diariamente.  
+El Güero en la esquina trabajó  
+Una canasta nunca soltó  
+Vender elotes era su vida entera  
+Siempre llegaba a la carrera.  
 
-Siempre ayudaba a la gente  
-El Güero, siempre tan sonriente,  
-Llegó una noche oscura  
-La Pelona salió de la sepultura.  
+Andaba siempre apurado  
+El Güero vivía muy confiado  
+Se apagó la luz en un instante  
+La Pelona llegó elegante.  
 
-Le dijo: «Ven, que la tumba te espera»  
-La Pelona, alegre calavera,  
-Lo quería al panteón llevar  
-Y no lo pudo salvar.  
+Lo retó a vender elotes: ¡qué competición!  
+Quiso llevárselo al panteón  
+La Pelona lo persiguió  
+Y al panteón se lo llevó.  
 
-Y al panteón fue llevado  
-Y quedó bien sepultado  
 Y su historia terminó  
-Y en el panteón se quedó.  
+Y en el panteón se quedó  
+Y fue su última salida  
+¡Y así se acaba la vida!  
 
 ### 25. Epitafio de Renata
 
 *Parámetros:* names: Renata; gender: a; tone: satirico; stanzas: 3; verses: 4; scheme: alternada; audience: educativo; level: secundaria; preferDialogue: true
 
-Renata, de buena manera,  
+Renata amaba las flores  
+Nunca un día faltó  
 Le encantaban los colores  
-Siempre llegaba a la carrera  
-Renata amaba las flores.  
+Renata un día despertó.  
 
-La Huesuda tocó la ventana  
-«¡Dame una oportunidad, por compasión!»  
-Le dijo: «Hoy no hay mañana»  
-La jaló del pantalón.  
-
-Y al panteón fue llevada  
-Hicieron una gran despedida  
-Y por siempre es recordada  
-¡Y así se acaba la vida!  
-
-### 26. Óscar contra la Muerte
-
-*Parámetros:* names: Óscar; oficio: portero; cualidad: muy valiente; tone: fantastico; stanzas: 4; verses: 4; scheme: pareada; ending: E; mustInclude: una espada
-
-Óscar era muy valiente  
-Con una espada siempre presente  
-Óscar, portero importante,  
-Tenía un humor muy brillante.  
-
-Era muy valiente e inteligente  
-Siempre ayudaba a la gente  
-La Calaca llegó elegante  
-Le dijo: «¡Vámonos, adelante!»  
-
-La Calaca lo encontró descuidado  
-Óscar gritó desesperado  
+Un viento frío sopló  
+Se oyó un ruido en la oscuridad  
+La Huesuda la persiguió  
 Le dijo: «Vente a la eternidad»  
-Y vive en libertad.  
 
-Y aún se ríe de la Parca fría  
-Y a la Muerte desafía  
-Y sigue en pie con frescura  
-¡Vaya aventura!  
+Y se fue con el viento  
+Y al panteón fue llevada  
+Y en su tumba hay un monumento  
+Y quedó bien sepultada.  
 
-### 27. Con cariño, para Abuela Chela
+### 26. Óscar y la Catrina encantada
+
+*Parámetros:* names: Óscar; oficio: portero; cualidad: muy valiente; defensa: le detuvo un penal; tone: fantastico; stanzas: 4; verses: 4; scheme: pareada; ending: E; mustInclude: una espada
+
+Óscar, famoso en la ciudad,  
+Era muy valiente, de verdad  
+Con una espada siempre presente  
+Siempre ayudaba a la gente.  
+
+Nunca un día faltó  
+Óscar un día despertó  
+La Calaca llegó a la carrera  
+Óscar le detuvo un penal, aunque no quisiera.  
+
+Le enseñó a ser portero con habilidad  
+Le dijo: «Vente a la eternidad»  
+Quiso llevárselo ese día  
+Y a la Muerte desafía.  
+
+Y la Calaca se fue vencida  
+Y Óscar huyó por la avenida  
+Y sigue fuerte como el viento  
+Y colorín, se acabó el cuento.  
+
+### 27. Un recuerdo para Abuela Chela
 
 *Parámetros:* names: Abuela Chela; gender: a; gusto: tejer bufandas; tone: tierno; stanzas: 5; verses: 4; scheme: alternada; ending: L
 
-Abuela Chela no paraba de trabajar  
+Abuela Chela era pura bondad  
+Siempre ayudaba a la gente  
+Sabía tejer bufandas con habilidad  
+Abuela Chela era muy valiente.  
+
+Llenaba la casa de colores  
 Cantaba por la ventana  
-Le encantaba tejer bufandas sin parar  
-Abuela Chela se levantó una mañana.  
-
-Andaba siempre apurada  
-Siempre andaba de travesura  
-Tejer bufandas la traía encantada  
-La Catrina salió de la sepultura.  
-
-Quiso llevársela al panteón  
-Le dijo: «Hoy no hay mañana»  
-La jaló del pantalón  
+Abuela Chela amaba las flores  
 La Catrina sonó la campana.  
 
-Le dijo: «Ya es el momento»  
+La jaló del pantalón  
 «¡Te vengo a llevar!», le dijo al llegar  
-Y se fue con el viento  
-Y no la pudo salvar.  
+La retó a tejer bufandas: ¡qué competición!  
+La quería al panteón llevar.  
+
+Le dijo: «Ven, que la tumba te espera»  
+A tejer bufandas la invitó con dulzura  
+Y ahora es otra calavera  
+Y la metió en la sepultura.  
 
 Y se la llevó al instante  
-Y en su tumba hay alegría  
-Y en su ofrenda hay pan abundante  
-Y aquí se acaba esta poesía.  
+Y le rezan con devoción  
+Y su tumba es muy elegante  
+Y aquí se acaba la lección.  
 
 ### 28. La Muerte y Iker
 
@@ -713,75 +716,75 @@ Y aquí se acaba esta poesía.
 
 Iker amaba las flores  
 Nunca un día faltó  
-Siempre andaba de travesura  
-Llegó la Pelona del panteón.  
+Cantaba por la ventana  
+La Pelona tocó el portón.  
 
-Le dijo: «Vente a la eternidad»  
+Le dijo: «Se acabó tu vida»  
 Quiso llevárselo ese día  
 Y se lo llevó al instante  
-Y ahora es otra calavera.  
+Y en su tumba hay muchas flores.  
 
-### 29. La aventura de Fernanda
+### 29. Fernanda y la Catrina
 
 *Parámetros:* names: Fernanda; gender: a; gusto: nadar; lugar: la alberca; tone: infantil; stanzas: 3; verses: 4; scheme: pareada; audience: educativo; level: primaria-baja
 
-Fernanda, famosa en la ciudad,  
-Sabía nadar con habilidad  
-Fernanda en la alberca vivía  
-Y a todos les sonreía.  
+Fernanda, muy bien preparada,  
+Nadar la traía encantada  
+Tenía un humor muy brillante  
+Nadar era lo más importante.  
 
-La Catrina sonó la campana  
-Le dijo: «Hoy no hay mañana»  
-«¡Dame una oportunidad, por compasión!»  
-La jaló del pantalón.  
+A la alberca la Catrina entró  
+Fernanda se escondió  
+En la alberca gritó: «¡Auxilio, gente!»  
+La Catrina la miró de frente.  
 
-Y se escapó al primer intento  
-Y sigue fuerte como el viento  
-Y la Muerte se cansó  
-¡Y la Catrina ni la encontró!  
+Y vive con felicidad  
+Y huyó por toda la ciudad  
+Y sigue sin ser atrapada  
+Y nunca fue alcanzada.  
 
 ### 30. El día que Don Fernando engañó a la Calaca
 
 *Parámetros:* names: Don Fernando; oficio: electricista; anecdota: se quedó sin luz en la boda; tone: humoristico; stanzas: 6; verses: 6; scheme: abrazada
 
-Don Fernando, electricista de día,  
+Don Fernando era electricista de vocación  
+Siempre llegaba a la carrera  
+Don Fernando, de buena manera,  
 Se quedó sin luz en la boda en una ocasión  
-Siempre quería tener la razón  
-Era Don Fernando pura alegría  
-Andaba siempre apurado  
-Siempre andaba despeinado.  
+Siempre andaba despeinado  
+Andaba siempre apurado.  
 
-Le encantaban los colores  
-Comía tamales sin medida  
 Nunca se perdía una comida  
-Don Fernando, de los mejores,  
-Decía siempre la verdad  
-Se quedó sin luz en la boda, ¡qué barbaridad!  
+Don Fernando era muy valiente  
+Siempre ayudaba a la gente  
+Comía tamales sin medida  
+Nunca un día faltó  
+Don Fernando un día despertó.  
 
-La Pelona llegó a la carrera  
-Don Fernando le dijo: «¡Ni lo intente!»  
-La Pelona lo miró de frente  
-Le dijo: «Ven, que la tumba te espera»  
+Sin saber lo que vendría  
 Lo jaló del pantalón  
-Quiso llevárselo al panteón.  
+Quiso llevárselo al panteón  
+La Pelona llegó aquel día  
+Le dijo: «Ya es el momento»  
+Don Fernando perdió el aliento.  
 
-«¡Dame una oportunidad, por compasión!»  
-Lo quería al panteón llevar  
-«¡Te vengo a llevar!», le dijo al llegar  
-Don Fernando pidió una explicación  
-La Pelona lo encontró descuidado  
-Don Fernando fingió estar desmayado.  
+Le reclamó que se quedó sin luz en la boda, de verdad  
+La Pelona, con gran finura,  
+Le reclamó esa travesura  
+Le dijo: «Vente a la eternidad»  
+La Pelona lo persiguió  
+Don Fernando gritó: «¡Yo no!»  
 
+¡Y así se acaba la vida!  
+Y se lo llevó sonriente  
+¡Que en paz descanse eternamente!  
+Hicieron una gran despedida  
 Y se lo llevó al instante  
-Y no lo pudo salvar  
-Y le llevan pan a su altar  
-Y su tumba es muy elegante  
-Y se lo llevó en un cajón  
-Y le rezan con devoción.  
+Y su tumba es muy elegante.  
 
-Y se fue a la eternidad  
-Y su historia terminó  
-Y en el panteón se quedó  
-Y descansa en paz, de verdad  
-Y en el panteón ha de estar  
-Y aquí lo vamos a dejar.  
+Y le rezan cada semana  
+Y al panteón fue llevado  
+Y quedó bien sepultado  
+Y se fue esa misma mañana  
+Y en la ofrenda está presente  
+Y lo recuerda toda la gente.  

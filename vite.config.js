@@ -19,5 +19,7 @@ export default defineConfig({
   test: {
     include: ['tests/unit/**/*.test.js', 'tests/integration/**/*.test.js'],
     environment: 'node',
+    // Algunas pruebas estadísticas generan cientos de poemas.
+    testTimeout: 60000,
   },
 });

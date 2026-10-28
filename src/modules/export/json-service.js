@@ -75,7 +75,7 @@ export function sanitizeImportedPoem(raw, index) {
     favorite: Boolean(migrated.favorite),
     params: cleanParams,
     engine: isPlainObject(migrated.engine)
-      ? { seed: Number(migrated.engine.seed) || 0, ending: str(migrated.engine.ending, 2), figure: str(migrated.engine.figure, 40), engineVersion: Number(migrated.engine.engineVersion) || 1 }
+      ? { seed: Number(migrated.engine.seed) || 0, ending: str(migrated.engine.ending, 2), figure: str(migrated.engine.figure, 40), hook: ['gusto', 'oficio', 'lugar', 'anecdota'].includes(migrated.engine.hook) ? migrated.engine.hook : null, engineVersion: Number(migrated.engine.engineVersion) || 1 }
       : null,
     protagonists: (migrated.protagonists || []).filter((p) => typeof p === 'string').map((p) => p.slice(0, 60)).slice(0, 10),
     stanzas: migrated.stanzas.map((s) => ({ id: s.id, locked: Boolean(s.locked), verses: s.verses.map(String) })),

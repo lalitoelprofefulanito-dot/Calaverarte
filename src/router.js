@@ -9,6 +9,8 @@ export const ROUTES = [
   { id: 'biblioteca', label: 'Biblioteca' },
   { id: 'disenador', label: 'Diseñador' },
   { id: 'configuracion', label: 'Configuración' },
+  // Fuera del menú principal: se enlaza desde el pie de página, el inicio y Configuración.
+  { id: 'creditos', label: 'Autoría y créditos', hidden: true },
 ];
 
 export function parseHash(hash = location.hash) {

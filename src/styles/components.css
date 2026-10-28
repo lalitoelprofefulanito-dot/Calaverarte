@@ -180,3 +180,68 @@ input[type="range"] { width: 100%; min-height: var(--tap); accent-color: var(--c
 
 .print-root { display: none; }
 details > summary { cursor: pointer; font-weight: bold; min-height: var(--tap); display: flex; align-items: center; }
+/* Fórmula de la calaverita */
+.formula h3 { margin-top: var(--space-5); }
+.formula-steps { padding-left: var(--space-5); display: grid; gap: var(--space-4); }
+.formula-step { padding-left: var(--space-2); }
+.formula-step::marker { font-family: var(--font-display); font-weight: bold; font-size: 1.3rem; color: var(--color-primary-strong); }
+.formula-step h4 { font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 var(--space-1); }
+.formula-step ul { margin: 0 0 var(--space-2); padding-left: var(--space-5); }
+.formula-step__label { margin: 0; font-weight: bold; }
+.formula-step__tip { border-left: 6px solid var(--color-accent); padding-left: var(--space-3); }
+.formula-rules dt { font-weight: bold; margin-top: var(--space-3); }
+.formula-rules dd { margin: 0; max-width: var(--measure); }
+.formula-model h4 { font-family: var(--font-display); font-size: 1.3rem; }
+.formula-model__stanza { margin-bottom: var(--space-4); }
+.formula-model__stage { font-weight: bold; color: var(--color-primary-strong); margin-bottom: var(--space-1); }
+.formula-model table { border-collapse: collapse; width: 100%; max-width: 34rem; }
+.formula-model th, .formula-model td { border: 2px solid var(--color-border); padding: var(--space-1) var(--space-2); text-align: left; }
+.formula-model__verse { font-family: var(--font-display); font-size: 1.1rem; }
+.stanza-guide { margin-top: var(--space-2); }
+.stanza-guide ul { margin: var(--space-1) 0; padding-left: var(--space-5); }
+.thread-note { border-left: 6px solid var(--color-primary); }
+.stanza-guide > div + div { margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--color-border); }
+.stanza-guide .hint { font-size: 1rem; color: var(--color-text); }
+/* Un verso nunca se parte: si no cabe, la tabla se desplaza dentro de su recuadro. */
+.formula-model__verse { white-space: nowrap; }
+.formula-model th, .formula-model td:not(.formula-model__verse) { white-space: nowrap; width: 1%; }
+@media (max-width: 600px) { .formula-model__verse { font-size: 0.95rem; } .formula-model th, .formula-model td { padding: var(--space-1); } }
+
+/* Aviso del instructivo en la portada */
+.guide-banner {
+  display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-4); align-items: center;
+  background: #FFFFFF; border: 4px solid var(--rosa-mexicano); border-radius: var(--radius-m);
+  padding: var(--space-4) var(--space-5); box-shadow: 0 6px 0 var(--rosa-mexicano);
+}
+.guide-banner__icon { width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--rosa-mexicano); color: #FFFFFF; display: grid; place-items: center; }
+.guide-banner__icon svg { width: 2rem; height: 2rem; }
+.guide-banner h2 { margin: 0 0 var(--space-1); font-size: 1.4rem; color: var(--noche); }
+.guide-banner p { margin: 0; color: var(--tinta); }
+.guide-banner__actions { display: grid; gap: var(--space-2); justify-items: center; }
+.btn--guide {
+  background: var(--rosa-mexicano); border-color: #7A0E3E; color: #FFFFFF;
+  font-size: 1.2rem; min-height: 64px; padding: 0 var(--space-5); box-shadow: 0 4px 0 #7A0E3E;
+}
+.btn--guide:hover { background: #9C1250; }
+.guide-banner__view { font-weight: bold; color: var(--noche); min-height: 44px; display: inline-flex; align-items: center; }
+.guide-banner__detail { font-size: 0.9rem; }
+@media (max-width: 760px) {
+  .guide-banner { grid-template-columns: 1fr; text-align: center; padding: var(--space-3) var(--space-4); gap: var(--space-2); }
+  .guide-banner__icon { display: none; }
+  .guide-banner h2 { font-size: 1.2rem; }
+  .btn--guide { width: 100%; font-size: 1.05rem; padding: 0 var(--space-3); white-space: nowrap; }
+  .guide-banner__actions { gap: 0; }
+}
+.app-footer__links { margin-top: var(--space-2) !important; }
+.app-footer__links a { font-weight: bold; }
+.credits__docs { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.credits__docs li { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-3); }
+.credits__docs p { margin: 0; }
+
+/* Conteo de sílabas en el editor y correcciones guiadas del formulario */
+.verse-row { grid-template-columns: 2rem 1fr auto auto; }
+.verse-row__meter { font-weight: bold; font-size: 0.95rem; min-width: 4.2rem; text-align: center; padding: 2px var(--space-1); border: 2px solid var(--color-ok); color: var(--color-ok); border-radius: 999px; }
+.verse-row__meter.is-off { border-style: dashed; border-color: var(--color-warn); color: var(--color-warn); }
+.verse-row__meter.is-off::before { content: "≠ "; }
+@media (max-width: 600px) { .verse-row { grid-template-columns: 1.5rem 1fr auto; } .verse-row__meter { grid-column: 2; justify-self: start; } }
+.field-fix { margin-top: var(--space-2); }

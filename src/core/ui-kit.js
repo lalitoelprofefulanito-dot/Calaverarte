@@ -17,6 +17,8 @@ const ICONS = {
   print: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></svg>',
   copy: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>',
   save: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 3h11l3 3v15H5z"/><path d="M8 3v6h8M8 21v-7h8v7"/></svg>',
+  book: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/></svg>',
+  download: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>',
   skull: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C18 6 9 16 9 28c0 7 3 12 8 16v8c0 3 2 5 5 5h20c3 0 5-2 5-5v-8c5-4 8-9 8-16C55 16 46 6 32 6z" fill="#FFFBF0" stroke="#1E1D1A" stroke-width="3"/><circle cx="23" cy="29" r="7" fill="#1E1D1A"/><circle cx="41" cy="29" r="7" fill="#1E1D1A"/><circle cx="23" cy="29" r="2.6" fill="#D98E04"/><circle cx="41" cy="29" r="2.6" fill="#D98E04"/><path d="M32 36l-4 6h8z" fill="#1E1D1A"/><path d="M25 50v6M30 50v6M35 50v6M40 50v6" stroke="#1E1D1A" stroke-width="2.5"/><path d="M32 8c2 4 2 7 0 10-2-3-2-6 0-10z" fill="#B5175E"/></svg>',
 };
 

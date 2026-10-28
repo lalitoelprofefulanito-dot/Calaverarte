@@ -10,10 +10,10 @@ import { lastWord, normalizeForSearch } from '../../src/core/normalization.js';
 import { kidsUnsafeTerms } from '../../src/modules/literary-engine/vocabulary.js';
 
 const CASES = [
-  { names: 'Doña Lupe', gender: 'a', oficio: 'cocinera', gusto: 'hacer tamales', cualidad: 'muy platicadora', lugar: 'el mercado', tone: 'tradicional', stanzas: 4, verses: 4, scheme: 'alternada' },
+  { names: 'Doña Lupe', gender: 'a', oficio: 'cocinera', gusto: 'hacer tamales', cualidad: 'muy platicadora', lugar: 'el mercado', defensa: 'le ofreció un tamal de rajas', tone: 'tradicional', stanzas: 4, verses: 4, scheme: 'alternada' },
   { names: 'Mateo', gusto: 'jugar futbol', cualidad: 'muy distraído', lugar: 'la escuela', tone: 'infantil', stanzas: 3, verses: 4, scheme: 'pareada', mustInclude: 'un balón', audience: 'educativo', level: 'primaria-baja' },
   { names: 'Ana, Luis y Pepe', tone: 'humoristico', stanzas: 2, verses: 6, scheme: 'abrazada', preferDialogue: true },
-  { names: 'el profe Eduardo', oficio: 'bibliotecario', gusto: 'leer cuentos', cualidad: 'muy paciente', lugar: 'la biblioteca', tone: 'tierno', stanzas: 4, verses: 4, scheme: 'pareada' },
+  { names: 'el profe Eduardo', oficio: 'bibliotecario', gusto: 'leer cuentos', cualidad: 'muy paciente', lugar: 'la biblioteca', defensa: 'le prestó un libro de cuentos', tone: 'tierno', stanzas: 4, verses: 4, scheme: 'pareada' },
   { names: 'Don Chucho', oficio: 'taxista', gusto: 'tocar el claxon', anecdota: 'se pasó un alto', tone: 'satirico', stanzas: 5, verses: 4, scheme: 'abrazada' },
   { names: 'Valeria', gender: 'a', gusto: 'bailar cumbia', lugar: 'la fiesta', tone: 'fantastico', stanzas: 3, verses: 4, scheme: 'alternada', ending: 'E' },
   { names: 'el abuelo Ramón', oficio: 'carpintero', gusto: 'contar chistes', tone: 'narrativo', stanzas: 6, verses: 4, scheme: 'alternada' },
@@ -35,7 +35,7 @@ const CASES = [
   { names: 'Martha y Julieta', oficio: 'maestras', tone: 'narrativo', stanzas: 3, verses: 4, scheme: 'alternada' },
   { names: 'El Güero', gusto: 'vender elotes', lugar: 'la esquina', tone: 'tradicional', stanzas: 4, verses: 4, scheme: 'pareada', mustInclude: 'una canasta' },
   { names: 'Renata', gender: 'a', tone: 'satirico', stanzas: 3, verses: 4, scheme: 'alternada', audience: 'educativo', level: 'secundaria', preferDialogue: true },
-  { names: 'Óscar', oficio: 'portero', cualidad: 'muy valiente', tone: 'fantastico', stanzas: 4, verses: 4, scheme: 'pareada', ending: 'E', mustInclude: 'una espada' },
+  { names: 'Óscar', oficio: 'portero', cualidad: 'muy valiente', defensa: 'le detuvo un penal', tone: 'fantastico', stanzas: 4, verses: 4, scheme: 'pareada', ending: 'E', mustInclude: 'una espada' },
   { names: 'Abuela Chela', gender: 'a', gusto: 'tejer bufandas', tone: 'tierno', stanzas: 5, verses: 4, scheme: 'alternada', ending: 'L' },
   { names: 'Iker', tone: 'tradicional', stanzas: 2, verses: 4, scheme: 'libre' },
   { names: 'Fernanda', gender: 'a', gusto: 'nadar', lugar: 'la alberca', tone: 'infantil', stanzas: 3, verses: 4, scheme: 'pareada', audience: 'educativo', level: 'primaria-baja' },
@@ -70,7 +70,7 @@ describe('30 casos literarios', () => {
           });
         });
       }
-      const fields = ['oficio', 'gusto', 'cualidad', 'lugar', 'anecdota', 'mustInclude'].filter((f) => raw[f]);
+      const fields = ['oficio', 'gusto', 'cualidad', 'lugar', 'anecdota', 'defensa', 'mustInclude'].filter((f) => raw[f]);
       const used = fields.filter((f) => normalizeForSearch(raw[f]).split(' ').filter((w) => w.length > 3).some((w) => text.includes(w)));
       const kids = raw.tone === 'infantil' || raw.audience === 'educativo';
       const unsafe = kids ? kidsUnsafeTerms(verses.join(' ')) : [];
@@ -85,7 +85,7 @@ describe('30 casos literarios', () => {
       expect(death).toBe(true);
       expect(nameIn1 || raw.names.includes(',') || raw.names.includes(' y ')).toBe(true);
 
-      rows.push({ index: index + 1, raw, pairs, ok, fields, used, warnings, evalOk, evalReview, ending: poem.engine.ending });
+      rows.push({ index: index + 1, raw, pairs, ok, fields, used, warnings, evalOk, evalReview, ending: poem.engine.ending, hook: poem.engine.hook, thread: poem.engine.closingThread > 0 });
       allPoems.push({ index: index + 1, raw, poem, warnings });
     });
   });
@@ -106,12 +106,13 @@ describe('30 casos literarios', () => {
       '',
       `- Parejas de versos que debían rimar: ${totalPairs}; riman según el motor de rimas: ${totalOk} (${((100 * totalOk) / Math.max(1, totalPairs)).toFixed(1)} %).`,
       `- Datos personales proporcionados: ${totalFields}; reconocibles en el poema: ${totalUsed} (${((100 * totalUsed) / Math.max(1, totalFields)).toFixed(1)} %).`,
+      `- Hilo conductor: ${rows.filter((r) => r.hook).length} casos con gancho; en ${rows.filter((r) => r.hook && r.thread).length} el gancho reaparece en el conflicto, la resolución o el remate.`,
       '- Versos vacíos o repetidos: 0 (la prueba falla si aparece alguno).',
       '- Términos no aptos en casos infantiles o escolares: 0. Palabras pedidas para evitar que aparecieron: 0.',
       '',
-      '| # | Protagonista | Tono | Extensión | Rima | Rimas OK | Datos usados | Desenlace | Avisos | El evaluador pide revisar |',
-      '|---|---|---|---|---|---|---|---|---|---|',
-      ...rows.map((r) => `| ${r.index} | ${r.raw.names} | ${r.raw.tone} | ${r.raw.stanzas}×${r.raw.verses} | ${r.raw.scheme} | ${r.raw.scheme === 'libre' ? 'n/a' : `${r.ok}/${r.pairs}`} | ${r.used.length}/${r.fields.length}${r.fields.length > r.used.length ? ` (falta: ${r.fields.filter((f) => !r.used.includes(f)).join(', ')})` : ''} | ${{ L: 'se lo lleva', E: 'escapa', F: 'fiesta' }[r.ending]} | ${r.warnings.length} | ${r.evalReview.join(', ') || '—'} |`),
+      '| # | Protagonista | Tono | Extensión | Rima | Rimas OK | Datos usados | Gancho (¿vuelve al final?) | Desenlace | Avisos | El evaluador pide revisar |',
+      '|---|---|---|---|---|---|---|---|---|---|---|',
+      ...rows.map((r) => `| ${r.index} | ${r.raw.names} | ${r.raw.tone} | ${r.raw.stanzas}×${r.raw.verses} | ${r.raw.scheme} | ${r.raw.scheme === 'libre' ? 'n/a' : `${r.ok}/${r.pairs}`} | ${r.used.length}/${r.fields.length}${r.fields.length > r.used.length ? ` (falta: ${r.fields.filter((f) => !r.used.includes(f)).join(', ')})` : ''} | ${r.hook ? `${r.hook} (${r.thread ? 'sí' : 'no'})` : '—'} | ${{ L: 'se lo lleva', E: 'escapa', F: 'fiesta' }[r.ending]} | ${r.warnings.length} | ${r.evalReview.join(', ') || '—'} |`),
       '',
       '## Poemas generados',
       '',

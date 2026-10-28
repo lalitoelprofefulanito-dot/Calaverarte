@@ -1,6 +1,8 @@
 import { el, svgFromString, formatDate } from '../../core/dom.js';
 import { button } from '../../core/ui-kit.js';
 import { HERO_ART } from './hero-art.js';
+import { DOCUMENTS } from './documents.js';
+import { icon } from '../../core/ui-kit.js';
 
 export async function renderHome(app) {
   let recent = [];
@@ -10,6 +12,16 @@ export async function renderHome(app) {
   } catch (error) {
     storageProblem = error.message;
   }
+  const doc = DOCUMENTS.instructivo;
+  const guide = el('section', { class: 'guide-banner', 'aria-labelledby': 'guia-titulo' },
+    el('div', { class: 'guide-banner__icon', 'aria-hidden': 'true' }, icon('book')),
+    el('div', { class: 'guide-banner__text' },
+      el('h2', { id: 'guia-titulo' }, '¿Primera vez en CalaverArte?'),
+      el('p', {}, 'Consulten el instructivo ilustrado: paso a paso para crear, editar e imprimir su calaverita en familia.')),
+    el('div', { class: 'guide-banner__actions' },
+      el('a', { class: 'btn btn--guide', href: doc.href, target: '_blank', rel: 'noopener noreferrer' }, icon('book'), 'Ver el instructivo (PDF)'),
+      el('p', { class: 'guide-banner__detail' }, `${doc.detail} · opcional`)));
+
   const hero = el('section', { class: 'hero', 'aria-labelledby': 'hero-title' },
     el('div', { class: 'hero__text' },
       el('p', { class: 'hero__eyebrow' }, 'Taller de calaveritas literarias'),
@@ -44,10 +56,11 @@ export async function renderHome(app) {
     ['educacion', 'Modo educativo', 'Actividades imprimibles por nivel: completar versos, ordenar estrofas, guías de revisión.'],
     ['disenador', 'Diseñador e impresión', 'Elige un estilo gráfico, imprime o guarda como PDF desde tu navegador.'],
     ['configuracion', 'Configuración', 'Tamaño de letra, tema de colores y respaldo de tus datos.'],
+    ['creditos', 'Autoría y créditos', 'Cómo citar el proyecto, documentos y reconocimiento del apoyo de IA.'],
   ];
   const quick = el('section', { 'aria-labelledby': 'accesos' },
     el('h2', { id: 'accesos' }, 'Más herramientas'),
     el('div', { class: 'grid grid--2' }, links.map(([id, title, text]) => el('a', { class: 'card card--link', href: `#/${id}` }, el('h3', {}, title), el('p', {}, text)))));
 
-  return el('div', { class: 'stack' }, hero, pasos, recentSection, quick);
+  return el('div', { class: 'stack' }, guide, hero, pasos, recentSection, quick);
 }

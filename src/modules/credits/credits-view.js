@@ -1,5 +1,6 @@
 import { el, downloadText } from '../../core/dom.js';
-import { button, viewHeader } from '../../core/ui-kit.js';
+import { button, viewHeader, icon } from '../../core/ui-kit.js';
+import { DOCUMENTS } from '../home/documents.js';
 
 const APP_URL = 'https://lalitoelprofefulanito-dot.github.io/calaverarte/';
 
@@ -156,6 +157,16 @@ function referencesCard(app) {
     el('p', { class: 'hint' }, 'Para una documentación académica estricta, añade el nombre o versión exacta de cada modelo solo si se conoce y se puede comprobar.'));
 }
 
+function documentsCard() {
+  return el('section', { class: 'card', 'aria-labelledby': 'credits-docs' },
+    el('h2', { id: 'credits-docs' }, 'Documentos del proyecto'),
+    el('ul', { class: 'credits__docs' }, Object.values(DOCUMENTS).map((doc) => el('li', {},
+      el('p', {}, el('strong', {}, doc.title), el('br'), el('span', { class: 'hint' }, doc.detail)),
+      doc.external
+        ? el('a', { class: 'btn btn--secondary', href: doc.href, target: '_blank', rel: 'noopener noreferrer' }, icon('book'), 'Abrir en Drive')
+        : el('a', { class: 'btn btn--secondary', href: doc.href, download: doc.download }, icon('download'), 'Descargar')))));
+}
+
 export function renderCredits(app) {
   return el('div', { class: 'stack credits' },
     viewHeader('Autoría y referencias', 'Cita la aplicación, consulta el reconocimiento de asistencia tecnológica y revisa el registro de prompts documentados durante su desarrollo.'),
@@ -164,6 +175,7 @@ export function renderCredits(app) {
       el('h2', {}, 'La autoría humana y la asistencia tecnológica, explicadas con transparencia'),
       el('p', {}, 'Esta sección documenta quién dirige el proyecto, cómo se utilizaron las herramientas de IA y qué instrucciones principales se registraron en el proceso.')),
     citationCard(app),
+    documentsCard(),
     authorshipCard(app),
     promptsCard(app),
     referencesCard(app));

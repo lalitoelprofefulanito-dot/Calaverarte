@@ -246,4 +246,65 @@ test.describe('CalaverArte', () => {
     const size = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize));
     expect(size).toBeGreaterThan(24);
   });
+
+  test('Fórmula: el Taller enseña los seis pasos con una calaverita modelo medida', async ({ page }) => {
+    await page.goto('/#/taller');
+    await expect(page.getByRole('heading', { name: 'La fórmula de la calaverita' })).toBeVisible();
+    await expect(page.locator('.formula-steps > li')).toHaveCount(6);
+    await expect(page.locator('.formula-rules dt')).toHaveCount(6);
+    const counts = await page.locator('.formula-model tbody tr td:nth-child(2)').allTextContents();
+    expect(counts).toHaveLength(16);
+    expect(new Set(counts)).toEqual(new Set(['8']));
+  });
+
+  test('Hilo conductor: la defensa entra en el poema y el editor guía cada estrofa', async ({ page }) => {
+    await page.goto('/#/crear');
+    await page.fill('#f-names', 'Doña Lupe');
+    await page.selectOption('#f-gender', 'a');
+    await page.fill('#f-gusto', 'hacer tamales');
+    await page.fill('#f-defensa', 'le ofreció un tamal de rajas');
+    await page.getByRole('button', { name: 'Generar calaverita' }).click();
+    await expect(page).toHaveURL(/#\/editor/);
+    await expect(page.locator('.thread-note')).toContainText('hacer tamales');
+    const text = (await page.locator('.verse-row input').evaluateAll((els) => els.map((e) => e.value))).join(' ');
+    expect(text).toContain('tamal de rajas');
+    const guide = page.locator('.stanza-card').first().locator('details.stanza-guide');
+    await guide.locator('summary').click();
+    await expect(guide).toContainText('Presenta al protagonista');
+  });
+
+  test('Instructivo: el botón se ve al cargar el inicio y abre el PDF en Google Drive', async ({ page }) => {
+    await page.goto('/#/inicio');
+    const button = page.getByRole('link', { name: 'Ver el instructivo (PDF)' });
+    await expect(button).toBeInViewport();
+    await expect(button).toHaveAttribute('href', 'https://drive.google.com/file/d/1ClMbu0ezm5DUkYiqJOFGwl8I9KV_FO4w/view?usp=sharing');
+    await expect(button).toHaveAttribute('target', '_blank');
+    await expect(button).toHaveAttribute('rel', /noopener/);
+    await expect(page.locator('.app-footer a', { hasText: 'Instructivo para familias' })).toHaveAttribute('href', 'https://drive.google.com/file/d/1ClMbu0ezm5DUkYiqJOFGwl8I9KV_FO4w/view?usp=sharing');
+  });
+
+  test('Créditos: la sección está enlazada y ofrece los documentos del proyecto', async ({ page }) => {
+    await page.goto('/#/inicio');
+    await page.locator('.app-footer').getByRole('link', { name: 'Autoría y créditos' }).click();
+    await expect(page.getByRole('heading', { name: 'Documentos del proyecto' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Abrir en Drive' })).toHaveAttribute('href', 'https://drive.google.com/file/d/1ClMbu0ezm5DUkYiqJOFGwl8I9KV_FO4w/view?usp=sharing');
+    const docx = await page.request.get('/resumen-ejecutivo-calaveritas.docx');
+    expect(docx.status()).toBe(200);
+  });
+
+  test('Validación guiada: sugiere la forma correcta y el editor cuenta sílabas', async ({ page }) => {
+    await page.goto('/#/crear');
+    await page.fill('#f-names', 'Mateo');
+    await page.fill('#f-gusto', 'el futbol');
+    await page.getByRole('button', { name: 'Generar calaverita' }).click();
+    await expect(page.locator('[data-field="f-gusto"] .field-error')).toContainText('infinitivo');
+    await page.getByRole('button', { name: 'Usar «jugar futbol»' }).click();
+    await expect(page.locator('#f-gusto')).toHaveValue('jugar futbol');
+    await page.getByRole('button', { name: 'Generar calaverita' }).click();
+    await expect(page).toHaveURL(/#\/editor/);
+    await expect(page.locator('.verse-row__meter').first()).toHaveText(/\d+ síl\./);
+    const first = page.locator('.verse-row input').first();
+    await first.fill('La Muerte llegó una noche');
+    await expect(page.locator('.verse-row__meter').first()).toHaveText('8 síl.');
+  });
 });

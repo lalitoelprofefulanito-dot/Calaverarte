@@ -7,8 +7,12 @@ import { validateParams } from './generation-schema.js';
 import { ValidationError } from '../../core/errors.js';
 
 export function generatePoem(rawParams, seed) {
-  const { ok, params, errors } = validateParams(rawParams);
-  if (!ok) throw new ValidationError('Revisa los datos marcados.', errors);
+  const { ok, params, errors, suggestions } = validateParams(rawParams);
+  if (!ok) {
+    const error = new ValidationError('Revisa los datos marcados.', errors);
+    error.suggestions = suggestions;
+    throw error;
+  }
   const result = getProvider('local').generate(params, seed);
   const poem = createPoem({
     title: result.title,

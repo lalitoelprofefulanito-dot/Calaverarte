@@ -13,7 +13,7 @@ Definido en `src/core/poem-model.js`. Fechas en ISO 8601 (UTC). Identificadores 
 | `status` | `borrador` \| `final` | Estado. |
 | `favorite` | booleano | Marcada como favorita. |
 | `params` | objeto | Parámetros originales de generación (ver abajo). |
-| `engine` | objeto \| null | `{ seed, ending: 'L'\|'E'\|'F', figure, engineVersion }`: permite reproducir la variante y mantener coherencia al regenerar. |
+| `engine` | objeto \| null | `{ seed, ending: 'L'\|'E'\|'F', figure, hook, threadByStanza, closingThread, engineVersion }`. `hook` es el dato del hilo conductor (`gusto`, `oficio`, `lugar`, `anecdota` o `null`); `threadByStanza` y `closingThread` cuentan los versos del hilo. Permite reproducir la variante y mantener coherencia al regenerar. |
 | `protagonists` | texto[] | Nombres separados. |
 | `stanzas` | Estrofa[] | 1 a 8 estrofas, en orden. |
 | `versions` | Versión[] | Hasta 50 instantáneas (se descartan las más antiguas). |
@@ -30,7 +30,7 @@ Definido en `src/core/poem-model.js`. Fechas en ISO 8601 (UTC). Identificadores 
 
 ## Parámetros de generación
 
-`names, gender ('o'|'a'), oficio, gusto, cualidad, lugar, anecdota, tone, audience ('general'|'educativo'), level, stanzas (2–8), verses (2–8), scheme ('pareada'|'alternada'|'abrazada'|'libre'), ending ('auto'|'L'|'E'|'F'), preferDialogue, mustInclude, avoid`.
+`names, gender ('o'|'a'), oficio, gusto, cualidad, lugar, anecdota, defensa (qué haría frente a la Muerte), tone, audience ('general'|'educativo'), level, stanzas (2–8), verses (2–8), scheme ('pareada'|'alternada'|'abrazada'|'libre'), ending ('auto'|'L'|'E'|'F'), preferDialogue, mustInclude, avoid`.
 
 ## Archivo de respaldo
 

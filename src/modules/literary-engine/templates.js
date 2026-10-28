@@ -10,7 +10,10 @@ const TONE_CODES = new Set(['tra', 'hum', 'inf', 'sat', 'tie', 'fan', 'nar']);
 const ENDING_CODES = new Set(['L', 'E', 'F']);
 
 /** Datos personales: usarlos aumenta la personalización. */
-export const PERSONAL_SLOTS = ['gusto', 'cualidad', 'oficio', 'lugar', 'anecdota', 'elemento'];
+export const PERSONAL_SLOTS = ['gusto', 'cualidad', 'oficio', 'lugar', 'anecdota', 'defensa', 'elemento'];
+
+/** Datos que pueden servir de hilo conductor de la historia. */
+export const HOOK_FIELDS = ['gusto', 'oficio', 'lugar', 'anecdota'];
 
 export function parseLine(raw, familyId, stage, index) {
   const match = raw.match(/^\[([^\]]+)\]\s*/);
@@ -27,6 +30,7 @@ export function parseLine(raw, familyId, stage, index) {
     adult: codes.includes('adu'),
     dialogue: codes.includes('dia') || text.includes('«'),
     closing: codes.includes('fin'),
+    hook: (codes.find((c) => c.startsWith('h:')) || '').slice(2) || null,
     slots,
   };
 }
@@ -53,8 +57,12 @@ export function slotsAvailable(line, slots) {
 
 /** Rellena los huecos de un verso. */
 export function fillLine(line, slots) {
-  const filled = line.text.replace(SLOT_RE, (_, slot) => slots[slot] ?? '');
-  return capitalizeFirst(filled.replace(/\s+/g, ' ').trim());
+  const filled = line.text.replace(SLOT_RE, (_, slot) => slots[slot] ?? '')
+    .replace(/\s+/g, ' ').trim()
+    // Contracciones obligatorias: «a el mercado» → «al mercado», «de el» → «del».
+    .replace(/\b([Aa]) el\b/g, '$1l')
+    .replace(/\b([Dd])e el\b/g, '$1el');
+  return capitalizeFirst(filled);
 }
 
 export function endWordOf(text) {

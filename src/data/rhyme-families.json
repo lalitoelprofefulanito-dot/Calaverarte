@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "about": "Versos con hueco por familia de rima y etapa narrativa. Prefijo opcional [códigos]: L/E/F = desenlace (llevado, escapa, fiesta); tra, hum, inf, sat, tie, fan, nar = tono preferente; adu = no apto para público infantil; dia = contiene diálogo; fin = fórmula de cierre, solo para el último verso del poema. Huecos: {N} protagonista, {o} terminación o/a, {el} él/ella, {lo} lo/la, {oficio}, {gusto}, {cualidad}, {lugar}, {anecdota}, {elemento}, {figura}.",
+  "about": "Versos con hueco por familia de rima y etapa narrativa. Prefijo opcional [códigos]: L/E/F = desenlace (llevado, escapa, fiesta); tra, hum, inf, sat, tie, fan, nar = tono preferente; adu = no apto para público infantil; dia = contiene diálogo; fin = fórmula de cierre, solo para el último verso del poema; h:<dato> = verso del hilo conductor, solo se usa si la historia gira alrededor de ese dato. Huecos: {N} protagonista, {o} terminación o/a, {el} él/ella, {lo} lo/la, {oficio}, {gusto}, {cualidad}, {lugar}, {anecdota}, {elemento}, {figura}, {defensa} (lo que hace frente a la Muerte).",
   "families": [
     {
       "id": "ia",
@@ -26,19 +26,31 @@
           "{figura}, que todo lo sabía,",
           "{figura} con gran puntería",
           "[tra] {figura}, flaca y fría,",
-          "sin saber lo que vendría"
+          "sin saber lo que vendría",
+          "[h:anecdota] {figura} supo que {anecdota} aquel día",
+          "[h:gusto] {figura} vino a {gusto} ese día",
+          "[h:oficio] {figura} llegó a su trabajo un día",
+          "[h:lugar] a {lugar} {figura} llegó un día"
         ],
         "conflicto": [
           "quiso llevárse{lo} ese día",
           "pero {el} no se rendía",
           "[dia] «¡Hoy no!», {N} le decía",
-          "con {elemento} se defendía"
+          "con {elemento} se defendía",
+          "[h:gusto] le ofreció enseñarle a {gusto} ese día",
+          "[dia] «Primero déjame {gusto}», le pedía",
+          "[h:oficio,dia] «Soy {oficio} y trabajo todavía»",
+          "[h:anecdota] le recordó que {anecdota} aquel día"
         ],
         "resolucion": [
           "[F] y {figura} se reía",
           "[F] bailaron hasta otro día",
           "[L] y al panteón se {lo} traía",
-          "[E] y {N} se escabullía"
+          "[E] y {N} se escabullía",
+          "[h:gusto,F] y a {gusto} {figura} aprendía",
+          "[h:lugar,L] y de {lugar} se {lo} llevó ese día",
+          "[h:lugar,F] y en {lugar} hubo fiesta y alegría",
+          "[h:anecdota,F] y de eso {figura} se reía"
         ],
         "remate": [
           "[L] y allá {lo} ven todavía",
@@ -47,7 +59,15 @@
           "[fin] y aquí se acaba esta poesía",
           "[L] y en su tumba hay alegría",
           "[E] y a la Muerte desafía",
-          "[F] ¡y qué noche de alegría!"
+          "[F] ¡y qué noche de alegría!",
+          "[h:gusto,F] y a {gusto} van en compañía",
+          "[h:lugar,L] y en {lugar} {lo} extrañan todavía",
+          "[h:oficio,F] y {figura} de {oficio} trabaja cada día",
+          "[h:gusto,E] y aún va a {gusto} con alegría",
+          "[h:oficio,E] y de {oficio} trabaja todavía",
+          "[h:lugar,E] y en {lugar} anda todavía",
+          "[h:anecdota,E] y nunca más lo haría",
+          "[h:anecdota,F] y todos lo cuentan con alegría"
         ]
       }
     },
@@ -76,14 +96,18 @@
           "quiso llevárse{lo} al panteón",
           "{lo} jaló del pantalón",
           "{N} pidió una explicación",
-          "[dia] «¡Dame una oportunidad, por compasión!»"
+          "[dia] «¡Dame una oportunidad, por compasión!»",
+          "[h:gusto] {lo} retó a {gusto}: ¡qué competición!",
+          "[h:oficio] le dio una lección de {oficio} con pasión"
         ],
         "resolucion": [
           "[F] y armaron una gran función",
           "[F] bailaron al son de una canción",
           "[E] {figura} cambió de opinión",
           "[L] y se {lo} llevó en un cajón",
-          "[E] con {elemento} ganó la discusión"
+          "[E] con {elemento} ganó la discusión",
+          "[h:gusto,L] y se fue a {gusto} al panteón",
+          "[h:anecdota,E] y {lo} perdonó por esa ocasión"
         ],
         "remate": [
           "[L] y ahora descansa en el panteón",
@@ -92,7 +116,11 @@
           "[E] y {figura} se quedó sin razón",
           "[L] y le rezan con devoción",
           "[E] y se salvó del panteón",
-          "[F] y hubo pan de muerto y canción"
+          "[F] y hubo pan de muerto y canción",
+          "[h:gusto,L] y hoy va a {gusto} por el panteón",
+          "[h:oficio,L] y es {oficio} del panteón",
+          "[h:lugar,L] y en {lugar} le dedican una canción",
+          "[h:anecdota,L] y su historia se cuenta en el panteón"
         ]
       }
     },
@@ -121,14 +149,24 @@
           "{lo} quería al panteón llevar",
           "{N} se quiso escapar",
           "[dia] «¡Te vengo a llevar!», le dijo al llegar",
-          "sacó {elemento} sin dudar"
+          "sacó {elemento} sin dudar",
+          "[h:gusto] {lo} puso a {gusto} sin parar",
+          "[h:oficio] {figura} quiso ser {oficio} y trabajar",
+          "pero {N} {defensa} sin dudar",
+          "[h:lugar] por {lugar} {lo} quiso atrapar"
         ],
         "resolucion": [
           "[F] y se pusieron a bailar",
           "[E] y {lo} dejó descansar",
           "[L] y no {lo} pudo salvar",
           "[E] {figura} se echó a llorar",
-          "[E] con {elemento} logró escapar"
+          "[E] con {elemento} logró escapar",
+          "[h:gusto,E] la dejó a {gusto} y se echó a volar",
+          "[h:lugar,F] y en {lugar} se pusieron a bailar",
+          "[h:oficio,F] y {figura} se quedó de ayudante a trabajar",
+          "[h:oficio,L] y de {oficio} se fue a otro lugar",
+          "[h:lugar,E] y por {lugar} logró escapar",
+          "[h:anecdota,E] y prometió portarse bien y no fallar"
         ],
         "remate": [
           "[L] y en el panteón ha de estar",
@@ -196,16 +234,21 @@
         "llegada": [
           "{figura} llegó enseguida",
           "{figura}, siempre decidida,",
-          "y una sombra apareció enseguida"
+          "y una sombra apareció enseguida",
+          "[h:oficio] {figura} llegó a la hora de salida"
         ],
         "conflicto": [
           "[dia] le dijo: «Se acabó tu vida»",
-          "{N} buscó una salida"
+          "{N} buscó una salida",
+          "[h:lugar] en {lugar} buscó una salida",
+          "{N} {defensa} enseguida",
+          "[h:gusto] {lo} retó a {gusto} enseguida"
         ],
         "resolucion": [
           "[F] y {N} le invitó la comida",
           "[L] hicieron una gran despedida",
-          "[E] y {N} huyó por la avenida"
+          "[E] y {N} huyó por la avenida",
+          "[h:defensa,E] y {figura} se fue vencida"
         ],
         "remate": [
           "[L] ¡y así se acaba la vida!",
@@ -238,7 +281,8 @@
         "conflicto": [
           "[dia] le dijo: «Ven, que la tumba te espera»",
           "{N} no quiso ir de ninguna manera",
-          "con {elemento} se defendió como pudiera"
+          "con {elemento} se defendió como pudiera",
+          "{N} {defensa}, aunque no quisiera"
         ],
         "resolucion": [
           "[F] y bailaron la noche entera",
@@ -273,17 +317,30 @@
         "llegada": [
           "{figura} apareció de repente",
           "{figura} llegó sonriente",
-          "sintió un escalofrío de repente"
+          "sintió un escalofrío de repente",
+          "[h:lugar] a {lugar} llegó {figura} de repente",
+          "[h:anecdota] y como {anecdota}, llegó {figura} de repente"
         ],
         "conflicto": [
           "{figura} {lo} miró de frente",
           "[dia] {N} le dijo: «¡Ni lo intente!»",
-          "sacó {elemento} de repente"
+          "sacó {elemento} de repente",
+          "[h:gusto] le enseñó a {gusto} pacientemente",
+          "[h:oficio] {lo} atendió como {oficio} diligente",
+          "entonces {N} {defensa} de repente",
+          "[h:lugar,dia] en {lugar} gritó: «¡Auxilio, gente!»"
         ],
         "resolucion": [
           "[F] y bailaron con toda la gente",
           "[E] y {figura} se fue impaciente",
-          "[L] y se {lo} llevó sonriente"
+          "[L] y se {lo} llevó sonriente",
+          "[h:gusto,L] y en el más allá va a {gusto} eternamente",
+          "[h:oficio,E] y volvió a su puesto de {oficio} sonriente",
+          "[h:lugar,E] y en {lugar} se escondió de la gente",
+          "[h:gusto,F] y a {gusto} invitaron a la gente",
+          "[h:oficio,F] y {figura} de {oficio} atendió a la gente",
+          "[h:lugar,F] y en {lugar} bailó toda la gente",
+          "[h:anecdota,L] y por eso se {lo} llevó de repente"
         ],
         "remate": [
           "[L] y {lo} recuerda toda la gente",
@@ -292,7 +349,9 @@
           "[F] ¡y que viva toda la gente!",
           "[L] y en la ofrenda está presente",
           "[E] y sigue san{o} y valiente",
-          "[F] y brindaron con la gente"
+          "[F] y brindaron con la gente",
+          "[h:oficio,L] y de {oficio} trabaja eternamente",
+          "[h:lugar,E] y en {lugar} sigue tan sonriente"
         ]
       }
     },
@@ -313,18 +372,35 @@
         "llegada": [
           "{figura} a la puerta tocó",
           "y de pronto {figura} llegó",
-          "un viento frío sopló"
+          "un viento frío sopló",
+          "[h:gusto] al {gusto} {lo} encontró",
+          "[h:anecdota] y como {anecdota}, {figura} llegó",
+          "[h:oficio] en su turno de {oficio} {lo} sorprendió",
+          "[h:lugar] a {lugar} {figura} entró"
         ],
         "conflicto": [
           "{N} se escondió",
           "{figura} {lo} persiguió",
           "[dia] {N} gritó: «¡Yo no!»",
-          "con {elemento} se protegió"
+          "con {elemento} se protegió",
+          "[h:lugar] por todo {lugar} {lo} persiguió",
+          "[h:anecdota] {figura} por eso se enojó"
         ],
         "resolucion": [
           "[L] y al panteón se {lo} llevó",
           "[E] y {figura} se rindió",
-          "[F] y la fiesta comenzó"
+          "[F] y la fiesta comenzó",
+          "[h:gusto,F] y {figura} a {gusto} se aficionó",
+          "[h:anecdota,F] y de que {anecdota} {figura} se rio",
+          "[h:lugar,L] y de {lugar} se {lo} llevó",
+          "[h:oficio,L] y de {oficio} en el panteón se empleó",
+          "[h:anecdota,L] y por eso al panteón se {lo} llevó",
+          "[h:gusto,E] y mientras {figura} iba a {gusto}, se escapó",
+          "[h:oficio,E] y {figura}, convencida, se marchó",
+          "[h:lugar,E] y en {lugar} se le escondió",
+          "[h:defensa,F] y {figura}, encantada, aceptó",
+          "[h:defensa,E] y así de {figura} se libró",
+          "[h:defensa,L] pero de nada le sirvió"
         ],
         "remate": [
           "[L] y su historia terminó",
@@ -352,18 +428,27 @@
         "llegada": [
           "{figura} salió de la sepultura",
           "{figura}, con gran finura,",
-          "llegó una noche oscura"
+          "llegó una noche oscura",
+          "[h:gusto] {figura} quiso {gusto} con locura"
         ],
         "conflicto": [
           "[dia] le dijo: «Vamos a la sepultura»",
           "[fan] {N} sacó una armadura",
           "{N} perdió la compostura",
-          "con {elemento} y gran bravura"
+          "con {elemento} y gran bravura",
+          "[h:gusto] a {gusto} {lo} invitó con dulzura",
+          "{N} {defensa} con gran bravura",
+          "[h:oficio] le explicó su trabajo con cordura",
+          "[h:lugar] en {lugar} se escondió con premura",
+          "[h:anecdota] le reclamó esa travesura"
         ],
         "resolucion": [
           "[L] y {lo} metió en la sepultura",
           "[E] y {N} escapó con premura",
-          "[F] y bailaron con soltura"
+          "[F] y bailaron con soltura",
+          "[h:gusto,L] y a {gusto} se fue a la sepultura",
+          "[h:lugar,L] y de {lugar} se fue a la sepultura",
+          "[h:anecdota,E] y {figura} le perdonó la travesura"
         ],
         "remate": [
           "[L] y ahora duerme con ternura",
@@ -371,7 +456,10 @@
           "[F] ¡qué noche de locura!",
           "[L] y le pusieron flores con ternura",
           "[E] y sigue en pie con frescura",
-          "[F] y todo acabó en dulzura"
+          "[F] y todo acabó en dulzura",
+          "[h:oficio,L] y es {oficio} en la sepultura",
+          "[h:gusto,L] y aún va a {gusto} en la sepultura",
+          "[h:anecdota,E] y no repitió esa travesura"
         ]
       }
     },
@@ -392,16 +480,27 @@
         "llegada": [
           "{figura} llegó con seriedad",
           "{figura}, desde la oscuridad,",
-          "se oyó un ruido en la oscuridad"
+          "se oyó un ruido en la oscuridad",
+          "[h:lugar] {figura} llegó a {lugar} con seriedad",
+          "[h:anecdota] {figura} supo que {anecdota}, ¡qué barbaridad!"
         ],
         "conflicto": [
           "[dia] le dijo: «Vente a la eternidad»",
-          "[dia] {N} dijo: «¡Qué calamidad!»"
+          "[dia] {N} dijo: «¡Qué calamidad!»",
+          "[h:anecdota] le reclamó que {anecdota}, de verdad",
+          "[h:gusto] {lo} retó a {gusto} con habilidad",
+          "[h:oficio] le enseñó a ser {oficio} con habilidad"
         ],
         "resolucion": [
           "[L] y se fue a la eternidad",
           "[E] y huyó por toda la ciudad",
-          "[F] y nació una gran amistad"
+          "[F] y nació una gran amistad",
+          "[h:gusto,L] y a {gusto} se fue a la eternidad",
+          "[h:gusto,E] y gracias a {gusto} recobró su libertad",
+          "[h:oficio,L] y es {oficio} en la eternidad",
+          "[h:oficio,E] y siguió de {oficio} en la ciudad",
+          "[h:anecdota,L] y por eso se fue a la eternidad",
+          "[h:defensa,F] y {figura} quedó encantada, de verdad"
         ],
         "remate": [
           "[L] y descansa en paz, de verdad",
@@ -409,7 +508,13 @@
           "[E] y vive con felicidad",
           "[L] y allá descansa en la eternidad",
           "[E] y vive en libertad",
-          "[F] ¡y viva la felicidad!"
+          "[F] ¡y viva la felicidad!",
+          "[h:lugar,E] y en {lugar} sigue con tranquilidad",
+          "[h:anecdota] y que {anecdota} se cuenta en la ciudad",
+          "[h:gusto,E] y va a {gusto} con felicidad",
+          "[h:gusto,F] y van a {gusto} con amistad",
+          "[h:lugar,L] y en {lugar} {lo} extraña la ciudad",
+          "[h:anecdota,F] y lo cuentan con felicidad"
         ]
       }
     },
@@ -436,7 +541,9 @@
         "resolucion": [
           "[L] y se fue esa misma mañana",
           "[F] y bailaron hasta la mañana",
-          "[E] y se escondió en una palangana"
+          "[E] y se escondió en una palangana",
+          "[h:gusto,F] y a {gusto} quedaron cada semana",
+          "[h:anecdota,F] y lo contaron toda la semana"
         ],
         "remate": [
           "[L] y por {N} sonó la campana",
@@ -444,7 +551,9 @@
           "[E] y {figura} volverá otra semana",
           "[L] y le rezan cada semana",
           "[E] y quizás la Muerte vuelva mañana",
-          "[F] y quedaron de verse otra semana"
+          "[F] y quedaron de verse otra semana",
+          "[h:lugar,F] y en {lugar} hay fiesta cada semana",
+          "[h:oficio,F] y {figura} es {oficio} cada semana"
         ]
       }
     },
@@ -479,7 +588,9 @@
           "[L] y su tumba es muy elegante",
           "[F] ¡qué fiesta tan emocionante!",
           "[L] y en su ofrenda hay pan abundante",
-          "[F] y bailaron con un elefante"
+          "[F] y bailaron con un elefante",
+          "[h:gusto,E] y vuelve a {gusto} tan campante",
+          "[h:oficio,E] y sigue de {oficio}, tan campante"
         ]
       }
     },
@@ -513,7 +624,9 @@
           "[F] ¡y que vivan los mejores!",
           "[L] y le llevan pan y flores",
           "[E] y escapó entre los tambores",
-          "[F] ¡y vivan los buenos sabores!"
+          "[F] ¡y vivan los buenos sabores!",
+          "[h:gusto,F] y a {gusto} van entre flores",
+          "[h:lugar,F] y en {lugar} hay fiesta con tambores"
         ]
       }
     },
@@ -533,12 +646,14 @@
         "llegada": [
           "llegó {figura} en ese momento",
           "{figura} llegó como el viento",
-          "sopló un helado viento"
+          "sopló un helado viento",
+          "[h:gusto] {figura} vino a {gusto} en ese momento"
         ],
         "conflicto": [
           "{N} perdió el aliento",
           "[dia] le dijo: «Ya es el momento»",
-          "con {elemento} hizo un gran invento"
+          "con {elemento} hizo un gran invento",
+          "[h:gusto] a {gusto} se pusieron al momento"
         ],
         "resolucion": [
           "[L] y se fue con el viento",

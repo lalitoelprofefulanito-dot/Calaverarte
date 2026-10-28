@@ -16,6 +16,7 @@ export function renderGenerator(app) {
     cualidad: textInput(values.cualidad, { maxlength: '120' }),
     lugar: textInput(values.lugar, { maxlength: '120' }),
     anecdota: textInput(values.anecdota, { maxlength: '120' }),
+    defensa: textInput(values.defensa, { maxlength: '120' }),
     tone: select(TONES, values.tone),
     stanzas: select(range(LIMITS.stanzas), values.stanzas),
     verses: select(range(LIMITS.verses), values.verses),
@@ -37,6 +38,7 @@ export function renderGenerator(app) {
     cualidad: field({ id: 'f-cualidad', label: 'Forma de ser', optional: true, hint: 'Un adjetivo que concuerde. Ejemplo: muy platicadora, bien distraído.', control: controls.cualidad }),
     lugar: field({ id: 'f-lugar', label: 'Escenario', optional: true, hint: 'Con artículo. Ejemplo: la escuela, el mercado, la biblioteca.', control: controls.lugar }),
     anecdota: field({ id: 'f-anecdota', label: 'Anécdota', optional: true, hint: 'Una frase en pasado. Ejemplo: se quedó dormido en la junta.', control: controls.anecdota }),
+    defensa: field({ id: 'f-defensa', label: '¿Qué haría frente a la Muerte?', optional: true, hint: 'Una frase en pasado que empiece con verbo. Ejemplo: le ofreció un tamal, le contó un chiste, se escondió en la alacena.', control: controls.defensa }),
     tone: field({ id: 'f-tone', label: 'Tono', control: controls.tone }),
     stanzas: field({ id: 'f-stanzas', label: 'Número de estrofas', hint: 'Entre 2 y 8.', control: controls.stanzas }),
     verses: field({ id: 'f-verses', label: 'Versos por estrofa', hint: 'Entre 2 y 8. Lo más común son 4.', control: controls.verses }),
@@ -76,20 +78,36 @@ export function renderGenerator(app) {
   const readForm = () => ({
     names: controls.names.value, gender: controls.gender.value, oficio: controls.oficio.value,
     gusto: controls.gusto.value, cualidad: controls.cualidad.value, lugar: controls.lugar.value,
-    anecdota: controls.anecdota.value, tone: controls.tone.value, stanzas: Number(controls.stanzas.value),
+    anecdota: controls.anecdota.value, defensa: controls.defensa.value, tone: controls.tone.value, stanzas: Number(controls.stanzas.value),
     verses: Number(controls.verses.value), scheme: controls.scheme.value, ending: controls.ending.value,
     preferDialogue: dialogue.querySelector('input').checked, mustInclude: controls.mustInclude.value,
-    avoid: controls.avoid.value, audience: audienceEdu.checked ? 'educativo' : 'general',
+    avoid: controls.avoid.value, audience: audienceEdu.checked ? 'educativo' : 'general', acceptAsIs: { ...acceptAsIs },
     level: audienceEdu.checked ? controls.level.value : 'general',
   });
 
   const fieldFor = { names: 'names', gender: 'gender', tone: 'tone', stanzas: 'stanzas', verses: 'verses', scheme: 'scheme' };
+  const acceptAsIs = {};
+
+  /** Botones bajo el campo: aceptar la sugerencia o conservar el texto propio. */
+  function showFix(key, suggestion) {
+    const wrapper = fields[key];
+    wrapper.querySelector('.field-fix')?.remove();
+    const control = controls[key];
+    const box = el('div', { class: 'field-fix row' },
+      suggestion ? el('button', { type: 'button', class: 'btn btn--primary btn--small', on: { click: () => {
+        control.value = suggestion; setFieldError(wrapper, null); box.remove(); control.focus();
+      } } }, `Usar «${suggestion}»`) : null,
+      el('button', { type: 'button', class: 'btn btn--secondary btn--small', on: { click: () => {
+        acceptAsIs[key] = true; setFieldError(wrapper, null); box.remove(); control.focus();
+      } } }, 'Dejarlo así'));
+    wrapper.append(box);
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
     const raw = readForm();
     app.lastForm = raw;
-    Object.values(fields).forEach((f) => setFieldError(f, null));
+    Object.values(fields).forEach((f) => { setFieldError(f, null); f.querySelector('.field-fix')?.remove(); });
     summary.hidden = true;
     try {
       const { poem, warnings } = generatePoem(raw);
@@ -106,6 +124,9 @@ export function renderGenerator(app) {
       if (error.fieldErrors) {
         const entries = Object.entries(error.fieldErrors);
         entries.forEach(([key, message]) => fields[fieldFor[key] || key] && setFieldError(fields[fieldFor[key] || key], message));
+        for (const key of ['gusto', 'defensa']) {
+          if (error.fieldErrors[key] && !/máximo/.test(error.fieldErrors[key])) showFix(key, error.suggestions?.[key]);
+        }
         summary.replaceChildren(
           el('h2', {}, `Hay ${entries.length} dato${entries.length === 1 ? '' : 's'} por corregir`),
           el('ul', {}, entries.map(([key, message]) => el('li', {}, el('a', { href: `#f-${key === 'mustInclude' ? 'must' : key}`, on: { click: (e) => { e.preventDefault(); fields[key]?.querySelector('input, select')?.focus(); } } }, message)))));
@@ -125,9 +146,10 @@ export function renderGenerator(app) {
         el('label', { class: 'choice' }, audienceEdu, 'Uso educativo (escuela)')),
       levelBox),
     el('fieldset', {}, el('legend', {}, 'Protagonista'),
+      el('p', { class: 'hint', style: { marginBottom: '1rem' } }, 'El generador elige uno de estos datos como hilo conductor: lo presenta al principio y lo hace volver en el conflicto y el final, para que la historia sea de esta persona y no de cualquiera.'),
       el('div', { class: 'fields-2' }, fields.names, fields.gender, fields.oficio, fields.lugar),
       el('div', { class: 'fields-2', style: { marginTop: '1rem' } }, fields.gusto, fields.cualidad),
-      el('div', { style: { marginTop: '1rem' } }, fields.anecdota)),
+      el('div', { class: 'fields-2', style: { marginTop: '1rem' } }, fields.anecdota, fields.defensa)),
     el('fieldset', {}, el('legend', {}, 'Estilo y extensión'),
       el('div', { class: 'fields-2' }, fields.tone, fields.ending, fields.stanzas, fields.verses, fields.scheme),
       el('div', { style: { marginTop: '1rem' } }, dialogue)),

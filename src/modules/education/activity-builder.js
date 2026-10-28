@@ -197,7 +197,7 @@ function crear(poem, profile, rng) {
     instructions: 'Elige una situación (o inventa otra) y planea tu calaverita con el organizador. Después escríbela con al menos dos estrofas que rimen.',
     blocks: [
       { kind: 'list', title: 'Situaciones', items: options },
-      { kind: 'organizer', rows: ['¿Quién es el protagonista?', '¿Qué lo hace especial?', '¿Dónde está?', '¿Cómo llega la Muerte?', '¿Qué problema ocurre?', '¿Cómo termina? (remate)'] },
+      { kind: 'organizer', rows: ['¿Quién es el protagonista?', '¿Qué lo hace especial?', '¿Dónde está?', '¿Cómo llega la Muerte?', '¿Qué hace el protagonista frente a la Muerte?', '¿Cómo termina? (remate)', 'Hilo conductor: ¿qué detalle del principio regresa al final?'] },
       { kind: 'lines', label: 'Mi calaverita', count: profile.id === 'preescolar' ? 4 : 10 },
     ],
     answerKey: null,
@@ -208,7 +208,7 @@ function revisar(poem, profile) {
   const young = profile.id === 'preescolar' || profile.id === 'primaria-baja';
   const criteria = young
     ? ['Tiene título.', 'Dice quién es el protagonista.', 'Aparece la Catrina o la Calaca.', 'Las palabras del final suenan igual (riman).', 'Tiene un final.']
-    : ['Tiene título relacionado con la historia.', 'Presenta al protagonista y una característica.', 'La Muerte interviene en la historia.', 'Hay un conflicto o situación graciosa.', 'Respeta el esquema de rima elegido.', 'Los versos tienen una medida parecida.', 'Tiene un remate que cierra la historia.', 'No ofende ni lastima a nadie.', 'Ortografía y puntuación cuidadas.'];
+    : ['Tiene título relacionado con la historia.', 'Presenta al protagonista y una característica.', 'La Muerte interviene en la historia.', 'Hay un conflicto o situación graciosa.', 'El final retoma un detalle del principio (hilo conductor).', 'Respeta el esquema de rima elegido.', 'Los versos tienen una medida parecida.', 'Tiene un remate que cierra la historia.', 'No ofende ni lastima a nadie.', 'Ortografía y puntuación cuidadas.'];
   return {
     instructions: 'Usa esta guía para revisar tu calaverita o la de un compañero. Marca una casilla en cada criterio.',
     blocks: [{ kind: 'table', headers: ['Criterio', 'Lo logré', 'Casi', 'Necesito ayuda'], rows: criteria.map((c) => [c, '☐', '☐', '☐']) }, { kind: 'lines', label: 'Lo que voy a mejorar', count: 3 }],

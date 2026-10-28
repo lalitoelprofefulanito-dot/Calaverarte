@@ -112,3 +112,62 @@ describe('regeneración y variantes', () => {
     expect(variant.stanzas[1].id).toBe(poem.stanzas[1].id);
   });
 });
+
+describe('hilo conductor', () => {
+  const full = { ...base, anecdota: 'se le quemaron los frijoles' };
+  it('el dato del gancho reaparece en el conflicto o el desenlace (≥85 % de 200 poemas)', () => {
+    let ok = 0;
+    for (let seed = 1; seed <= 200; seed += 1) {
+      const scheme = ['alternada', 'pareada', 'abrazada'][seed % 3];
+      const out = generate(params({ ...full, scheme }), seed);
+      expect(['gusto', 'oficio', 'lugar', 'anecdota']).toContain(out.engine.hook);
+      if (out.engine.threadByStanza.slice(2).some((n) => n > 0)) ok += 1;
+    }
+    expect(ok / 200).toBeGreaterThanOrEqual(0.85);
+  });
+  it('sin datos personales no hay gancho y el poema se genera igual', () => {
+    const out = generate(params({ names: 'Iker', stanzas: 3, verses: 4 }), 4);
+    expect(out.engine.hook).toBeNull();
+    expect(out.stanzas).toHaveLength(3);
+  });
+  it('incorpora siempre lo que hace frente a la Muerte, o lo avisa', () => {
+    let present = 0;
+    for (let seed = 1; seed <= 300; seed += 1) {
+      const scheme = ['alternada', 'pareada', 'abrazada'][seed % 3];
+      const tone = ['tradicional', 'infantil', 'humoristico', 'tierno'][seed % 4];
+      const out = generate(params({ ...base, scheme, tone, stanzas: 2 + (seed % 5), defensa: 'le ofreció un tamal de rajas' }), seed);
+      const text = normalizeForSearch(out.stanzas.flatMap((s) => s.verses).join(' '));
+      if (text.includes('tamal de rajas')) present += 1;
+      else expect(out.warnings.join(' ')).toMatch(/frente a la Muerte/);
+    }
+    expect(present).toBe(300);
+  });
+  it('aplica las contracciones al y del', () => {
+    for (let seed = 1; seed <= 40; seed += 1) {
+      const text = generate(params({ ...base, lugar: 'el mercado' }), seed).stanzas.flatMap((s) => s.verses).join(' ');
+      expect(text).not.toMatch(/\b[Aa] el mercado|\b[Dd]e el mercado/);
+    }
+  });
+  it('regenerar una estrofa conserva el gancho elegido', () => {
+    const p = params(full);
+    const out = generate(p, 9);
+    const poem = createPoem({ title: out.title, params: p, stanzas: out.stanzas, engine: out.engine });
+    expect(poem.engine.hook).toBe(out.engine.hook);
+    const again = regenerateStanza(poem, 2, 77);
+    expect(again.verses).toHaveLength(4);
+  });
+});
+
+describe('medida de los versos', () => {
+  it('prefiere octosílabos: al menos el 55 % de los versos mide 8 ± 1 (antes del filtro: 41 %)', async () => {
+    const { meterOf } = await import('../../src/modules/literary-engine/rhythm-checker.js');
+    let ok = 0;
+    let total = 0;
+    for (let seed = 1; seed <= 150; seed += 1) {
+      const out = generate(params({ ...base, scheme: ['alternada', 'pareada', 'abrazada'][seed % 3] }), seed);
+      for (const v of out.stanzas.flatMap((s) => s.verses)) { total += 1; if (Math.abs(meterOf(v).metric - 8) <= 1) ok += 1; }
+    }
+    expect(ok / total).toBeGreaterThanOrEqual(0.55);
+  });
+});
+

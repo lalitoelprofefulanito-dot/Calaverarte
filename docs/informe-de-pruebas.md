@@ -8,10 +8,10 @@ Versiones: Vite 6.4.4, Vitest 4.1.11, Playwright 1.56.0 (Chromium 141), ESLint 9
 | Comprobación | Comando | Resultado |
 |---|---|---|
 | Calidad de código | `npm run lint` | Sin errores (incluye: sin variables ni importaciones sin uso, sin `eval`, `innerHTML` solo en el constructor de SVG fijo) |
-| Unitarias e integración | `npm test` | **139 de 139** aprobadas en 16 archivos |
-| Extremo a extremo | `npm run test:e2e` | **31 aprobadas, 1 omitida** a propósito (teclado físico en el perfil móvil) |
-| Compilación | `npm run build` | Correcta: 127,7 KB de JS (45,4 KB comprimido), 19,2 KB de CSS |
-| Archivo único | `npm run build:single` | `calaverarte.html` de 147 KB; probado abierto desde disco sin errores |
+| Unitarias e integración | `npm test` | **164 de 164** aprobadas en 18 archivos |
+| Extremo a extremo | `npm run test:e2e` | **41 aprobadas, 1 omitida** a propósito (teclado físico en el perfil móvil) |
+| Compilación | `npm run build` | Correcta: 166,6 KB de JS (58,3 KB comprimido) |
+| Archivo único | `npm run build:single` | `calaverarte.html` de 194 KB, copiado a `docs/index.html`; probado abierto desde disco |
 
 ## Pruebas unitarias y de integración (Vitest)
 
@@ -21,7 +21,7 @@ Versiones: Vite 6.4.4, Vitest 4.1.11, Playwright 1.56.0 (Chromium 141), ESLint 9
 | rhyme-engine | 26 | Separación silábica, acentuación, rima por sonido, esquemas de 2 a 8 versos |
 | rhythm-checker | 3 | Sinalefas, ley del acento final, detección de versos desiguales |
 | generation-schema | 7 | Validación del formulario y límites por perfil educativo |
-| engine | 14 | Extensión, determinismo por semilla, personalización, rima, sin repeticiones, desenlaces, tono infantil, restricciones, ausencia de llamadas de red, regeneración y variantes con bloqueo |
+| engine | 19 | Además de lo anterior: hilo conductor en las estrofas 3 y 4 (≥85 % de 200 poemas), defensa presente en 300 de 300 poemas variados, contracciones «al/del», gancho conservado al regenerar |
 | editor-session | 7 | Edición, deshacer/rehacer, bloqueo, límites, cambios sin guardar |
 | version-service | 4 | Instantáneas, restauración con punto de recuperación, comparación |
 | evaluator | 6 | No modifica el poema (objeto congelado), tres estados, detección de fallos |
@@ -32,6 +32,7 @@ Versiones: Vite 6.4.4, Vitest 4.1.11, Playwright 1.56.0 (Chromium 141), ESLint 9
 | preferences | 4 | Persistencia, datos corruptos, almacenamiento que falla, límites de diseño |
 | repository (IndexedDB simulado) | 6 | CRUD, persistencia entre conexiones, migración al leer, errores de cuota y de disponibilidad |
 | backup-roundtrip | 1 | Respaldo completo de un dispositivo a otro con conflictos |
+| formula | 3 | La guía cubre las seis etapas; la calaverita modelo mide 8 sílabas en sus 16 versos y tiene rima ABAB consonante |
 | literary-cases | 30 | 30 casos literarios (ver abajo) |
 
 ## Criterios de aceptación (Playwright, escritorio y Pixel 7)
@@ -55,14 +56,15 @@ Versiones: Vite 6.4.4, Vitest 4.1.11, Playwright 1.56.0 (Chromium 141), ESLint 9
 | CA-15 Sin llamadas externas | Ninguna petición sale de `localhost`; la compilación incluye `connect-src 'none'` | Aprobado |
 | CA-16 Sin botones sin función | Cada botón visible de las 9 vistas tiene un manejador de clic (inspección con el protocolo de Chromium) | Aprobado |
 
-Además: actividad educativa con instrucciones editadas e impresión con clave de respuestas; buscador de rimas y contador de sílabas; tema y tamaño de letra que persisten al recargar.
+Además: el Taller muestra los seis pasos de la fórmula y la calaverita modelo con 8 sílabas en cada verso; la defensa escrita en el formulario aparece en el poema y el editor muestra el hilo conductor y la guía por estrofa; actividad educativa con instrucciones editadas e impresión con clave de respuestas; buscador de rimas y contador de sílabas; tema y tamaño de letra que persisten al recargar.
 
 ## 30 casos literarios
 
 Detalle y poemas en [informe-casos-literarios.md](informe-casos-literarios.md).
 
-- Rima: 242 de 245 parejas (98,8 %).
-- Datos personales reconocibles: 49 de 54 (90,7 %).
+- Rima: 239 de 245 parejas (97,6 %).
+- Datos personales reconocibles: 55 de 57 (96,5 %).
+- Hilo conductor: los 22 casos con gancho lo retoman en el conflicto, la resolución o el remate.
 - Versos vacíos o repetidos: 0. Términos no aptos en casos infantiles: 0. Palabras prohibidas que aparecieron: 0.
 
 **Lectura humana.** Las métricas no miden naturalidad, así que se leyeron los poemas. Esa lectura reveló defectos que se corrigieron antes de este informe:
@@ -77,6 +79,35 @@ Detalle y poemas en [informe-casos-literarios.md](informe-casos-literarios.md).
 **Calidad observada:** en extensiones de 2 a 5 estrofas de 4 versos los poemas tienen arco narrativo reconocible y rima consistente. Los poemas de 6 a 8 estrofas largas se vuelven genéricos y repetitivos en la parte central. El ritmo es irregular porque las plantillas no tienen medida fija.
 
 **Conclusión:** el motor es útil como punto de partida para editar, no como sustituto de la escritura. Ver [limitaciones.md](limitaciones.md).
+
+## Hilo conductor: medición antes y después
+
+Pregunta de diseño: ¿las estrofas 3 y 4 hablan del protagonista o son genéricas?
+
+| Medición (200 poemas de 4×4 con todos los datos) | Antes | Después |
+|---|---|---|
+| Algún dato personal escrito en las estrofas 3 y 4 | 0 de 60 (0 %) en la medición inicial | 143 de 200 (72 %) |
+| Hilo conductor en las estrofas 3 y 4 (explícito o implícito) | — | 186 de 200 (93 %) |
+
+Durante el trabajo se encontraron y corrigieron tres fallos del propio motor:
+
+- la regla contra palabras repetidas castigaba justo las palabras del gancho;
+- solo se evaluaban 6 de las 14 familias de rima;
+- la prioridad del gancho se agotaba en la llegada de la Muerte.
+
+Una prueba de navegador resultó inestable porque la defensa solo aparecía en el 90 % de los poemas. Se corrigió el motor, no la prueba: ahora aparece en 300 de 300, y la prueba pasó 20 de 20 repeticiones.
+
+## Medida de los versos y validación guiada
+
+| Medición (200 poemas variados) | Antes | Después |
+|---|---|---|
+| Versos de 8 ± 1 sílabas | 41,1 % | 59,4 % |
+| Datos personales reconocibles (30 casos) | 94,7 % | 96,5 % |
+| Tiempo de generación por calaverita | — | 30 ms |
+
+Primero el filtro llegó al 63 % de octosílabos, pero bajó los datos personales al 84 %; se decidió priorizar la historia y los datos sobre la medida. Un recorte automático de muletillas («Y», «Pero») no mejoró nada y se retiró. La validación guiada se prueba con conversiones como «el futbol» → «jugar futbol» y «darle un abrazo» → «le dio un abrazo», y con pretéritos irregulares («le detuvo un penal») que no deben marcarse.
+
+Nuevas pruebas en navegador: el botón del instructivo se ve al cargar la portada en escritorio y celular y abre el PDF en Google Drive en una pestaña nueva (también el enlace del pie de página); *Autoría y créditos* está enlazada y ofrece los documentos; la corrección guiada se acepta con un toque y el editor cuenta sílabas al escribir.
 
 ## Seguridad de dependencias
 

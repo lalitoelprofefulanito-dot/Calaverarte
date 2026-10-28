@@ -28,8 +28,8 @@ export function checkContent(poem) {
       ? check('protagonista', 'Protagonista', STATUS.REVIEW, `No se menciona a: ${missingNames.join(', ')}.`)
       : check('protagonista', 'Protagonista', STATUS.OK, `Se menciona a ${names.join(', ')}.`));
 
-  const traitFields = [['gusto', 'su gusto o hábito'], ['cualidad', 'su forma de ser'], ['oficio', 'su oficio'], ['lugar', 'el escenario'], ['anecdota', 'la anécdota']];
-  const provided = traitFields.filter(([field]) => collapseSpaces(params[field] || ''));
+  const traitFields = [['gusto', 'su gusto o hábito'], ['cualidad', 'su forma de ser'], ['oficio', 'su oficio'], ['lugar', 'el escenario'], ['anecdota', 'la anécdota'], ['defensa', 'lo que hace frente a la Muerte']];
+  const provided = traitFields.filter(([field]) => collapseSpaces(params[field] || '') && !(field === 'oficio' && names.length > 1));
   const missingTraits = provided.filter(([field]) => {
     const words = significantWords(params[field]);
     return words.length > 0 && !words.some((w) => contains(text, w));

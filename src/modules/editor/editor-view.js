@@ -4,7 +4,9 @@ import { getProvider } from '../../adapters/generation-provider.js';
 import { saveVersion, restoreVersion, diffStates } from './version-service.js';
 import { poemToPlainText } from '../../core/poem-model.js';
 import { copyText } from '../export/print-service.js';
-import { STAGE_LABELS, stagesByStanza } from '../literary-engine/narrative-builder.js';
+import { stagesByStanza } from '../literary-engine/narrative-builder.js';
+import { STAGE_GUIDE } from '../workshop/formula.js';
+import { meterOf } from '../literary-engine/rhythm-checker.js';
 
 export function renderEditor(app) {
   if (!app.session) {
@@ -54,12 +56,21 @@ export function renderEditor(app) {
     clear(stanzaList).append(...session.poem.stanzas.map((stanza, i) => {
       const locked = stanza.locked;
       const count = session.poem.stanzas.length;
-      const stageNames = [...new Set(stages[i])].map((s) => STAGE_LABELS[s].toLowerCase()).join(', ');
+      const stageIds = [...new Set(stages[i])];
+      const stageNames = stageIds.map((s) => STAGE_GUIDE[s].title.toLowerCase()).join(', ');
+      const guide = el('details', { class: 'stanza-guide' },
+        el('summary', {}, '¿Qué debe lograr esta estrofa?'),
+        stageIds.map((s) => el('div', {},
+          el('p', {}, el('strong', {}, `${STAGE_GUIDE[s].title}. `), STAGE_GUIDE[s].purpose),
+          el('ul', {}, STAGE_GUIDE[s].questions.map((q) => el('li', {}, q))),
+          el('p', { class: 'hint' }, `Consejo: ${STAGE_GUIDE[s].tip}`))),
+        el('p', {}, el('a', { href: '#/taller' }, 'Ver la fórmula completa en el Taller literario')));
       const head = el('div', { class: 'stanza-card__head' },
         el('div', {},
           el('h3', { id: `est-${stanza.id}` }, `Estrofa ${i + 1}`),
           el('p', { class: 'hint' }, `Función sugerida: ${stageNames}.`),
-          locked ? el('p', { class: 'lock-label' }, 'Bloqueada: no se puede editar ni regenerar.') : null),
+          locked ? el('p', { class: 'lock-label' }, 'Bloqueada: no se puede editar ni regenerar.') : null,
+          guide),
         el('div', { class: 'row' },
           button(locked ? 'Desbloquear' : 'Bloquear', { small: true, iconName: locked ? 'unlock' : 'lock', attrs: { 'aria-pressed': String(locked), 'aria-describedby': `est-${stanza.id}`, 'data-action': 'lock' }, onClick: () => run(() => session.toggleLock(i), () => refreshAll({ focus: `[data-stanza="${stanza.id}"] [data-action="lock"]` })) }),
           button('Regenerar', { small: true, iconName: 'refresh', attrs: { disabled: locked, 'aria-describedby': `est-${stanza.id}`, 'data-action': 'regenerate' }, onClick: () => regenerate(i) }),
@@ -69,10 +80,18 @@ export function renderEditor(app) {
           button(`Eliminar estrofa ${i + 1}`, { small: true, iconOnly: true, iconName: 'trash', variant: 'danger', attrs: { disabled: locked || count <= 1 }, onClick: () => removeStanza(i) })));
       const verses = stanza.verses.map((verse, j) => {
         const input = textInput(verse, { readonly: locked, 'aria-label': `Verso ${j + 1} de la estrofa ${i + 1}`, maxlength: '300', dataset: { verse: `${i}-${j}` } });
-        input.addEventListener('input', () => { try { session.setVerse(i, j, input.value); refreshToolbar(); } catch (error) { app.toast(error.message, 'error'); } });
+        const meter = el('span', { class: 'verse-row__meter', title: 'Sílabas métricas aproximadas (la medida tradicional es 8)' });
+        const showMeter = () => {
+          const n = verse.trim() || input.value.trim() ? meterOf(input.value).metric : 0;
+          meter.textContent = n ? `${n} síl.` : '—';
+          meter.classList.toggle('is-off', n > 0 && Math.abs(n - 8) > 1);
+        };
+        showMeter();
+        input.addEventListener('input', () => { try { session.setVerse(i, j, input.value); showMeter(); refreshToolbar(); } catch (error) { app.toast(error.message, 'error'); } });
         return el('div', { class: 'verse-row' },
           el('span', { class: 'verse-row__num', 'aria-hidden': 'true' }, String(j + 1)),
           input,
+          meter,
           el('div', { class: 'row' },
             button(`Añadir verso después del ${j + 1} en la estrofa ${i + 1}`, { small: true, iconOnly: true, iconName: 'plus', attrs: { disabled: locked || stanza.verses.length >= 8 }, onClick: () => run(() => session.addVerse(i, j), () => refreshAll({ focus: `[data-verse="${i}-${j + 1}"]` })) }),
             button(`Quitar el verso ${j + 1} de la estrofa ${i + 1}`, { small: true, iconOnly: true, iconName: 'minus', attrs: { disabled: locked || stanza.verses.length <= 1 }, onClick: () => run(() => session.removeVerse(i, j)) })));
@@ -188,6 +207,12 @@ export function renderEditor(app) {
     }
   }
 
+  const HOOK_LABELS = { gusto: 'su gusto', oficio: 'su oficio', lugar: 'el escenario', anecdota: 'la anécdota' };
+  const hook = session.poem.engine?.hook;
+  const hookValue = hook ? session.poem.params?.[hook] : '';
+  const threadNote = hook && hookValue
+    ? el('p', { class: 'notice thread-note' }, el('strong', {}, 'Hilo conductor: '), `${HOOK_LABELS[hook]} («${hookValue}»). Aparece al principio y regresa en el conflicto o el final. Si reescribes versos, procura conservarlo.`)
+    : null;
   const warnings = app.pendingWarnings;
   app.pendingWarnings = [];
   const warningBox = warnings.length
@@ -217,7 +242,7 @@ export function renderEditor(app) {
 
   root.append(
     viewHeader('Editor', 'Cambia cualquier verso. Bloquea las estrofas que ya te gustan para que «Regenerar» y «Nueva variante» no las toquen. Atajos: Ctrl+Z deshacer, Ctrl+Y rehacer, Ctrl+S guardar.'),
-    ...[warningBox, toolbar, stanzaList, versionsPanel].filter(Boolean));
+    ...[warningBox, threadNote, toolbar, stanzaList, versionsPanel].filter(Boolean));
   refreshAll();
   if (app.focusVersions) {
     app.focusVersions = false;
